@@ -1,0 +1,4 @@
+{
+    "dbUri": "postgres://postgres:postgres@localhost:5432/junji",
+    "secret": "y`Sz+Rv&`^|HGOK]33N7?iXaHXYUa#>KLB.,6QA9Tr132=[]g>ikT^h>Uf5X#Ch"
+}   
