@@ -2,6 +2,10 @@ login = () =>{
     event.preventDefault();
     let nick = $("#username").val();
     let password = $("#password").val();
+    let conf = 0;
+    if(nick=="" || password==""){
+        conf=1;
+    }; 
     nick = encodeURIComponent(nick);
     password = encodeURIComponent(password);
     let formData = `nick=${nick}&password=${password}`;
@@ -10,7 +14,7 @@ login = () =>{
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load', () => {
-        if (xhr.status === 200) {
+        if (xhr.status === 200 && conf == 0) {
             swal({
                 title: 'Éxito!',
                 icon: 'success',
@@ -26,11 +30,19 @@ login = () =>{
                 }
             });
         } else {
-            swal({
-                title: 'Error',
-                icon: 'warning',
-                text: 'Rut o contraseña incorrectos.'
-            });
+            if(conf == 1){
+                swal({
+                    title: 'Error',
+                    icon: 'error',
+                    text: 'Debe rellenar todos los campos.'
+                })
+            }else{
+                swal({
+                    title: 'Error',
+                    icon: 'warning',
+                    text: 'Usuario o contraseña incorrectos.'
+                });
+            }
         }
     });
     xhr.send(formData);

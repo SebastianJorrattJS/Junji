@@ -1,5 +1,6 @@
 body {
-	background: url("../img/78df0cff4e4fe930ef99005f915738ef.jpg") no-repeat center center fixed;
+	background: url("../images/") no-repeat center center fixed;
+    background-color: #F3F3F3;
 	background-size: cover;
 	font-size: 16px;
 	font-family: 'Lato', sans-serif;
@@ -71,7 +72,7 @@ p.small {
 	max-width: 340px;
 	margin: 0 auto;
 	position: relative;
-	top: 80px;
+	top: 180px;
 	padding-bottom: 30px;
 	border-radius: 5px;
 	box-shadow: 0 5px 50px rgba(0,0,0,0.4);
@@ -79,7 +80,7 @@ p.small {
 }
 
 .login-box .box-header {
-	background-color: orange;
+	background-color: #EF3F44;
 	margin-top: 0;
 	border-radius: 5px 5px 0 0;
 }
@@ -119,7 +120,7 @@ p.small {
 	font-weight: 400;
 	font-size: 0.7em;
 	letter-spacing: 1px;
-	background-color: orange;
+	background-color: #006CB8;
 	cursor:pointer;
 	outline: none;
 }
@@ -137,15 +138,4 @@ p.small {
 .selected {
 	color: #665851!important;
 	transition: 0.5s;
-}
-
-/* Animation Delay */
-#logo {
-  -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 2s;
-}
-
-.login-box {
-  -webkit-animation-duration: 1s;
-  -webkit-animation-delay: 1s;
 }

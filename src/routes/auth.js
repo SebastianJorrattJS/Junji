@@ -39,7 +39,7 @@ router.get('/register', (req, res) => {
 
 router.get('/register2', (req, res) => {
   User.register(
-    {nick: 'Sea', tipo_usuario_id: '1', name: 'test'},
+    {nick: 'Sebastian', tipo_usuario_id: '1', name: 'test'},
     'test',
     (err, user) => 
     {
