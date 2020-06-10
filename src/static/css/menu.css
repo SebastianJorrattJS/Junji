@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/cssfamily=Poppins:400,500,600,700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    color: white;
+    user-select: none;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    background: #F3F3F3;
+}
+nav{
+    background: #EF3F44;
+}
+nav:after{
+    content: '';
+    clear: both;
+    display: table;
+}
+nav .logo{
+    float: left;
+    color: white;
+    font-size: 27px;
+    font-weight: 600;
+    line-height: 70px;
+    padding-left: 60px;
+}
+nav ul{
+    float: right;
+    list-style: none;
+    margin-right: 40px;
+    position: relative;
+}
+nav ul li{
+    float: left;
+    display: inline-block;
+    background: #EF3F44;
+    margin: 0 5px;
+}
+nav ul li a{
+    color: white;
+    text-decoration: none;
+    line-height: 70px;
+    font-size: 18px;
+    padding: 8px 15px;
+}
+nav ul li a:hover{
+    color: #006CB8;
+    /**border-radius: 5px;
+    box-shadow: 0 0 5px white,
+                0 0 5px #006CB8;**/
+}
+nav ul ul{
+    position: absolute;
+    top: 90px;
+    border-top: 3px solid #006CB8;
+    opacity: 0;
+    visibility: hidden;
+    transition: top .3s;
+}
+nav ul li:hover > ul{
+    top: 70px;
+    opacity: 1;
+    visibility: visible;
+}
+nav ul ul li{
+    position: relative;
+    background: white;
+    margin: 0px;
+    width: 150px;
+    float: none;
+    display: list-item;
+    border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+nav ul ul li a{
+    line-height: 50px;
+    color: #006CB8;
+}
+nav ul ul li a:hover{
+    color: #EF3F44;
+    box-shadow: none;
+}

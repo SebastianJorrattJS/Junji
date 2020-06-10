@@ -53,7 +53,7 @@ app.get('/',(req,res)=>{
     res.render('login');
 })
 
-app.get('/menuAdmin', isAuthenticated,(req,res)=>{
+app.get('/inicio', isAuthenticated,(req,res)=>{
   res.render('menuAdmin');
 })
 app.use(`/auth`, authRoutes);

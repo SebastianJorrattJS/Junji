@@ -23,7 +23,7 @@ login = () =>{
             })
             .then(() => {
                 if(xhr.response.user.tipo_usuario_id === '1'){
-                    window.open('menuAdmin', '_self');
+                    window.open('inicio', '_self');
                 }
                 if(xhr.response.user.tipo_usuario_id === '2'){
                     /*window.open('menuV', '_self');*/
