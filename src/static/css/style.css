@@ -1,5 +1,5 @@
 body {
-	background: url("../img/") no-repeat center center fixed;
+	background: url("") no-repeat center center fixed;
     background-color: #F3F3F3;
 	background-size: cover;
 	font-size: 16px;
@@ -9,7 +9,6 @@ body {
 	color: #666;
 }
 
-/* Typography */
 h1#title {
 	font-family: 'Roboto Slab', serif;
 	font-weight: 400;
@@ -80,7 +79,7 @@ p.small {
 }
 
 .login-box .box-header {
-	background-color: #EF3F44;
+	background-color: #006CB8;
 	margin-top: 0;
 	border-radius: 5px 5px 0 0;
 }
@@ -120,7 +119,7 @@ p.small {
 	font-weight: 400;
 	font-size: 0.7em;
 	letter-spacing: 1px;
-	background-color: #006CB8;
+	background-color: #EF3F44;
 	cursor:pointer;
 	outline: none;
 }

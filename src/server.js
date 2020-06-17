@@ -56,6 +56,11 @@ app.get('/',(req,res)=>{
 app.get('/inicio', isAuthenticated,(req,res)=>{
   res.render('menuAdmin');
 })
+
+app.get('/compania', isAuthenticated,(req,res)=>{
+  res.render('compania');
+})
+
 app.use(`/auth`, authRoutes);
 app.use(`/api`, isAuthenticated , apiRoutes);
 
