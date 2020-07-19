@@ -57,9 +57,66 @@ app.get('/inicio', isAuthenticated,(req,res)=>{
   res.render('menuAdmin');
 })
 
+app.get('/requerimiento', isAuthenticated,(req,res)=>{
+  res.render('requerimiento');
+})
+
+//Jardines
 app.get('/compania', isAuthenticated,(req,res)=>{
   res.render('compania');
 })
+
+app.get('/agregarJardin', isAuthenticated,(req,res)=>{
+  res.render('agregarJardin');
+})
+
+app.get('/editEstablecimiento/:id', isAuthenticated, (req,res)=>{
+  res.render('editEstablecimiento',{id:req.params.id});
+})
+
+app.get('/proveedor', isAuthenticated,(req,res)=>{
+  res.render('proveedor');
+})
+
+app.get('/categoria', isAuthenticated,(req,res)=>{
+  res.render('categoria');
+})
+
+app.get('/administrador', isAuthenticated,(req,res)=>{
+  res.render('administrador');
+})
+
+//Encargado
+app.get('/encargadoEstablecimiento', isAuthenticated,(req,res)=>{
+  res.render('encargadoEstablecimiento');
+})
+
+app.get('/agregarEncargado', isAuthenticated,(req,res)=>{
+  res.render('agregarEncargado');
+})
+
+app.get('/editEncargado/:id', isAuthenticated, (req,res)=>{
+  res.render('editEncargado',{id:req.params.id});
+})
+
+//PRODUCTOS
+app.get('/producto', isAuthenticated,(req,res)=>{
+  res.render('producto');
+})
+
+app.get('/agregarProducto', isAuthenticated,(req,res)=>{
+  res.render('agregarProducto');
+})
+
+app.get('/editProducto/:id', isAuthenticated, (req,res)=>{
+  res.render('editProducto',{id:req.params.id});
+})
+
+app.get('/compra', isAuthenticated,(req,res)=>{
+  res.render('compra');
+})
+
+
 
 app.use(`/auth`, authRoutes);
 app.use(`/api`, isAuthenticated , apiRoutes);

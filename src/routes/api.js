@@ -25,4 +25,27 @@ router.get('/userInfo', (req, res) => {
     });
 });
 
+//GET
+router.get("/listaProductos",db.getProductos);
+router.get("/ObtenerUser",db.getUser);
+router.get("/getProducto/:id",db.getDatosProducto);
+router.get("/getEncargado",db.getEncargado);
+router.get("/getDatosEncargado/:id",db.getDatosEncargado);
+router.get("/getDatosEstablecimiento/:id",db.getDatosEstablecimiento);
+router.get("/getEstablecimientos",db.getEstablecimiento);
+//Post
+router.post("/addProducto",db.postProductos);
+router.post("/addEncargado",db.postEncargado);
+router.post("/addEstablecimiento",db.postEstablecimiento);
+
+//Delete
+router.delete('/deleteProducto/:id',db.deleteProducto);
+router.put('/deleteEncargado/',db.deleteEncargado);
+router.put('/deleteEncargadoJardin/',db.deleteEncargadoJardin);
+router.put('/deleteEstablecimiento/',db.deleteEstablecimiento);
+
+//PUT
+router.put('/editProducto/',db.editProducto)
+router.put('/editEncargado/',db.editEncargado)
+router.put('/editEstablecimiento/',db.editEstablecimiento)
 export default router;

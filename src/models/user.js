@@ -16,6 +16,7 @@ const User = db.define(
     nombre: Sequelize.STRING,
     apellido: Sequelize.STRING,
     telefono: Sequelize.STRING,
+    estado: Sequelize.STRING,
     password_hash: Sequelize.STRING,
     password_salt: Sequelize.STRING
   },

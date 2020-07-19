@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	ObtenerNombre();
 	/*Mostrar ocultar area de notificaciones*/
 	$('.btn-Notification').on('click', function(){
         var ContainerNoty=$('.container-notifications');
@@ -43,7 +44,7 @@ $(document).ready(function(){
 		  	if (isConfirm) {
 		    	event.preventDefault();
 				let xhr = new XMLHttpRequest();
-				xhr.open('get', 'auth/logout');
+				xhr.open('get', '../auth/logout');
 				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 				xhr.send();
 				window.open('../', '_self');
@@ -79,3 +80,27 @@ $(document).ready(function(){
             });
         });
 })(jQuery);
+
+ObtenerNombre = () => {
+	let xhr = new XMLHttpRequest();
+    xhr.open('get','../api/ObtenerUser');
+    xhr.responseType ='json';
+    xhr.addEventListener('load',()=>{
+        if(xhr.status === 200){
+			let {data} = xhr.response;
+            nombres(data[0].nick);
+            
+        }else{
+            swal({
+                title: 'Error',
+                icon: 'error',
+                text: 'Error al cargar datos del usuario.'
+            })
+        }
+    });
+    xhr.send();
+}
+nombres = (nick) => {
+	$('#nombre1').text(nick)
+	$('#nombre2').text(nick)
+};

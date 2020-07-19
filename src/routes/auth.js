@@ -27,7 +27,7 @@ router.get('/logout', function (req, res) {
 
 router.get('/register', (req, res) => {
   User.register(
-    {nick: req.nick, tipo_usuario_id: req.user.tipo, correo: req.user.correo, nombre: req.user.nombre, apellido: req.user.apellido, telefono: req.user.telefono},
+    {nick: req.nick, tipo_usuario_id: req.user.tipo, correo: req.user.correo, nombre: req.user.nombre, apellido: req.user.apellido, telefono: req.user.telefono, estado: '1'},
     'test',
     (err, user) => 
     {
@@ -39,7 +39,7 @@ router.get('/register', (req, res) => {
 
 router.get('/register2', (req, res) => {
   User.register(
-    {nick: 'Sebastian', tipo_usuario_id: '1', name: 'test'},
+    {nick: 'Sebastian', tipo_usuario_id: '1', name: 'test', estado: '1'},
     'test',
     (err, user) => 
     {

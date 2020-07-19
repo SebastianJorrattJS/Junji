@@ -1,0 +1,154 @@
+CREATE TABLE session (
+  sid VARCHAR NOT NULL,
+  sess JSON NOT NULL,
+  expire TIMESTAMP(6) WITHOUT TIME ZONE NOT NULL,
+
+  CONSTRAINT pk_session PRIMARY KEY (sid)
+);
+
+CREATE TABLE tipo_usuario (
+  id VARCHAR,
+  tipo VARCHAR,
+  CONSTRAINT "pk_tipo_usuario" PRIMARY KEY (id)
+);
+
+CREATE TABLE "user" (
+  serie serial,
+  nick VARCHAR,
+  tipo_usuario_id VARCHAR,
+  correo VARCHAR,
+  nombre VARCHAR,
+  apellido VARCHAR,
+  telefono VARCHAR,
+  estado VARCHAR,
+  password_hash VARCHAR,
+  password_salt VARCHAR,
+  CONSTRAINT pk_user PRIMARY KEY (nick),
+  CONSTRAINT "fk_user_tipoUsuario" FOREIGN KEY (tipo_usuario_id) REFERENCES tipo_usuario (id)
+);
+
+insert into tipo_usuario values('1', 'Administrador');
+insert into tipo_usuario values('2', 'Normal');
+
+CREATE TABLE "producto" (
+  codigo VARCHAR,
+  nombre VARCHAR,
+  precio integer,
+  prioridad integer,
+  tipo VARCHAR,
+  descripcion VARCHAR,
+  CONSTRAINT pk_producto PRIMARY KEY (codigo),
+  CONSTRAINT uq_producto UNIQUE (nombre)
+);
+
+
+CREATE TABLE "Otroproducto" (
+  codigo VARCHAR,
+  nombre VARCHAR,
+  precio integer,
+  prioridad integer,
+  tipo VARCHAR,
+  descripcion VARCHAR,
+  CONSTRAINT pk_Otroproducto PRIMARY KEY (codigo),
+  CONSTRAINT uq_Otroproducto UNIQUE (nombre)
+);
+
+insert into producto values('1635713', 'ADHESIVO STIC FIX BARRA', 850, 2, 'Oficina','ADHESIVO PRITT BARRA 40 GRS UNIDAD');
+insert into producto values('1608523', 'BANDEJA DE ESCRITORIO DOM METÁLICA', 5812, 2, 'Oficina','BANDEJA DE ESCRITORIO DOM METÁLICA 2 PISOS NEGRA UNIDAD');
+insert into producto values('1151950', 'Block Prepicado cuadriculado', 858, 2, 'Oficina','BLOCK DE APUNTES COLON CARTA ESPIRAL 7MM UNIDAD');
+insert into producto values('1007292', 'Carpeta con funda oficio', 2664, 2, 'Oficina','CARPETA ADIX OFICIO VINILO NEGRA 40 FUNDAS UNIDAD');
+insert into producto values('1273423', 'CARPETA JA PLASTIFICADA OFICIO CON ACCO CLIP AMARILLO', 303, 2, 'Oficina','CARPETA JA PLASTIFICADA OFICIO CON ACCO CLIP AMARILLO UNIDAD');
+insert into producto values('1273424', 'CARPETA JA PLASTIFICADA OFICIO CON ACCO CLIP ROJO', 303, 2, 'Oficina','CARPETA JA PLASTIFICADA OFICIO CON ACCO CLIP ROJO UNIDAD');
+insert into producto values('1273421', 'CARPETA JA PLASTIFICADA OFICIO CON ACCO CLIP AZUL', 253, 2, 'Oficina','CARPETA JA PLASTIFICADA OFICIO CON ACCO CLIP AZUL UNIDAD');
+insert into producto values('1322490', 'Chinches: CHINCHES ADIX PUSH PINS COLORES 100 UNIDADES', 1818, 2, 'Oficina','CHINCHES BISILQUE PUSH PINS TRANSPARENTES 200 UNIDAD');
+insert into producto values('1640199', 'Cinta De Embalaje: CINTA DE EMBALAJE USA TAPE TRANSPARENTE 48 MM X 40 MT', 255, 2, 'Oficina','CINTA ADHESIVA SELLOFFICE TRANSPARENTE 48MMX40M UNIDAD');
+insert into producto values('1163753', 'Cinta Masking Tape: CINTA ADHESIVA SELLOCINTA MASKING 48MMX40MT UNIDAD', 909, 2, 'Oficina','CINTA ADHESIVA SELLOCINTA MASKING 48MMX40MT UNIDAD');
+insert into producto values('1007682', 'Corchetes: CORCHETES TORRE 11695 - 26/6 5000 u', 387, 2, 'Oficina','CORCHETES TORRE 11695 - 26/6 5000 UNIDADES');
+insert into producto values('1007731', 'CUCHILLO CARTONERO ISOFIT Nº160 GRANDE METALICO UNIDAD', 1677, 2, 'Oficina','CUCHILLO CARTONERO ISOFIT Nº160 GRANDE METALICO UNIDAD');
+insert into producto values('1641414', 'DESTACADOR ISOFIT CELESTE', 440, 2, 'Oficina','DESTACADOR DOM TRANSPARENTE CELESTE UNIDAD');
+insert into producto values('1641418', 'DESTACADOR ISOFIT NARANJA', 440, 2, 'Oficina','DESTACADOR DOM TRANSPARENTE NARANJO UNIDAD');
+insert into producto values('1641416', 'DESTACADOR ISOFIT ROSADO', 440, 2, 'Oficina','DESTACADOR DOM TRANSPARENTE ROSADO UNIDAD');
+insert into producto values('1641415', 'DESTACADOR ISOFIT VERDE', 440, 2, 'Oficina','DESTACADOR DOM TRANSPARENTE VERDE UNIDAD');
+insert into producto values('1641417', 'Destacadores: DESTACADOR ISOFIT TB AMARILLO', 440, 2, 'Oficina','DESTACADOR DOM TRANSPARENTE AMARILLO UNIDAD');
+insert into producto values('1616343', 'FUNDA ADIX TRANSPARENTE OFICIO BORDE BLANCO', 2992, 2, 'Oficina','FUNDA DOM TAMAÑO OFICIO 100Unidades');
+insert into producto values('1531666', 'Laminas para termolaminar lamating film 230x340', 11101, 2, 'Oficina','LÁMINAS DE PLASTIFICAR (POUCHES) DOM CARTA 0,5 MM 100 UNIDADES');
+insert into producto values('1522687', 'LÁPIZ GRAFITO FABER CASTELL TRIANGULAR CON GOMA CÓDIGO 1210 B UNIDAD', 237, 2, 'Oficina','LÁPIZ GRAFITO FABER CASTELL TRIANGULAR CON GOMA CÓDIGO 1210 B UNIDAD');
+insert into producto values('1006197', 'MARCADOR ISOFIT PIZARRA ROJO UNIDAD', 242, 2, 'Oficina','MARCADOR ARTEL PIZARRA PUNTA REDONDA ROJO UNIDAD');
+insert into producto values('1006405', 'NOTA AUTOADHESIVA 3M POP-UP COLORES ULTRA 90HJS. Paquete de 6 UNIDADES', 7990, 2, 'Oficina','NOTA AUTOADHESIVA 3M POP-UP COLORES ULTRA 90HJS. 6 UNIDADES');
+insert into producto values('1222966', 'OPALINA AMERICANA', 41, 2, 'Oficina','CARTULINA DIAZOL OPALINA HILADA TAMAÑO AMERICANA 225GRS UNIDAD');
+insert into producto values('1108642', 'Opalina gofrada 225 tamaño carta', 5677, 2, 'Oficina','CARTULINA DIAZOL OPALINA HILADA CARTA BLANCA 100 UNIDADES');
+insert into producto values('1108640', 'Opalina oficio lisa', 5707, 2, 'Oficina','CARTULINA DIAZOL OPALINA LISA OFICIO BLANCA 100 UNIDADES');
+insert into producto values('1273266', 'Organizador de carton para  carpetas', 2000, 2, 'Oficina','CAJA DE ARCHIVO TORRE MULTIORDEN SCOTLAND UNIDAD');
+insert into producto values('1006683', 'PERFORADORA ISOFIT PP70 ALTO PODER METALICA 65 HJS. UNIDAD', 15980, 2, 'Oficina','PERFORADORA ISOFIT PP70 ALTO PODER METALICA 65 HJS. UNIDAD');
+insert into producto values('1608539', 'PORTA LAPIZ: PORTALÁPIZ HAND REJILLA NEGRO 11X7 CM UNIDAD', 882, 2, 'Oficina','PORTALÁPIZ DOM METÁLICO CILINDRO 8X8X10 CM UNIDAD');
+insert into producto values('1006822', 'Portaminas 0,7', 705, 2, 'Oficina','PORTAMINA ISOFIT 0.7 MM - 2007 UNIDAD');
+insert into producto values('1006861', 'REGLA ARTEL METALICA 60 CM 20690202 UNIDAD', 1726, 2, 'Oficina','REGLA ARTEL METALICA 60 CM 20690202 UNIDAD');
+insert into producto values('1602386', 'REGLA PROARTE PLASTICA BISELADA TRANSPARENTE HUMO 30 CMS', 180, 2, 'Oficina','REGLA NEOLITE TRANSPARENTE 30 CM UNIDAD');
+insert into producto values('0000000', 'Repuesto magiclip', 0, 2, 'Oficina','Repuesto magiclip');
+insert into producto values('1546474', 'Repuesto minas 0,7', 303, 2, 'Oficina','MINAS ARTEL 0,7MM HB UNIDAD');
+insert into producto values('1546473', 'Respuesto minas 0,5', 232, 2, 'Oficina','MINAS ARTEL 0,5MM HB UNIDAD');
+insert into producto values('1006871', 'SACACORCHETE ISOFIT NEGRO SC100 CON BOTON SEGURIDAD UNIDAD', 233, 2, 'Oficina','SACACORCHETE ISOFIT NEGRO SC100 CON BOTON SEGURIDAD UNIDAD');
+insert into producto values('1344353', 'SACAPUNTA MAPED SHAKER DOBLE UNIDAD', 333, 2, 'Oficina','SACAPUNTA MAPED SHAKER DOBLE UNIDAD');
+insert into producto values('1322537', 'SEPARADOR BANGRÁFICA OFICIO INDICE ALFABETICO A-Z 24 POSICIONES', 935, 2, 'Oficina','SEPARADOR BANGRÁFICA OFICIO INDICE ALFABETICO A-Z 24 POSICIONES UNIDAD UNIDAD');
+insert into producto values('1006882', 'SEPARADOR RHEIN OFICIO CARTULINA 6 POSICIONES UNIDAD', 249, 2, 'Oficina','SEPARADOR BANGRÁFICA OFICIO SATINADO PASTEL SET 6 POSICIONES UNIDAD');
+insert into producto values('1300501', 'Sobre carta', 22, 2, 'Oficina','SOBRE JORDAN CARTA 80GR 12,4X15,4 UNIDAD');
+insert into producto values('1314378', 'SOBRE OFICIO CAFÉ', 87, 2, 'Oficina','SOBRE JORDAN 1/1 OFICIO CAFÉ 70 GRS 24 X 34 CM UNIDAD');
+insert into producto values('1314360', 'Sobre tamaño Americano', 15, 2, 'Oficina','SOBRE JORDAN AMERCIANO BLANCO 80GRS 10 X 23 CM UNIDAD');
+insert into producto values('1300492', 'Sobre tamaño Medio Oficio', 40, 2, 'Oficina','SOBRE JORDAN 1/2 BLANCO 80GRS 20X26 UNIDAD');
+insert into producto values('1314380', 'Sobre tamaño Oficio', 66, 2, 'Oficina','SOBRE JORDAN 1/1 OFICIO BLANCO 80 GRS 34 X 34 CM UNIDAD');
+insert into producto values('1233712', 'Tampón Para Timbre: TAMPÓN KORES AZUL N°2 PLASTICO UNIDAD', 1283, 2, 'Oficina','TAMPÓN KORES AZUL N°2 PLASTICO UNIDAD');
+insert into producto values('1165423', 'TIJERAS RHEIN 24 CM BLISTER UNIDADTIJERAS RHEIN 24 CM BLISTER UNIDAD', 1777, 2, 'Oficina','TIJERAS RHEIN 24 CM BLISTER UNIDAD');
+insert into producto values('1007162', 'Tinta Para Tampón: TINTA TRODAT 28 ML TAMPÓN 7011 AZUL UNIDAD', 1432, 2, 'Oficina','TINTA TRODAT 28 ML TAMPÓN 7011 AZUL UNIDAD');
+insert into producto values('1640202', 'Mica  carta', 11880, 2, 'Oficina','MICA DIAZOL OFICIO NATURAL 100 UNIDAD');
+insert into producto values('1527144', 'PAPEL FOTOGRAFICO no superior a 200 gr', 1756, 2, 'Oficina','PAPEL INKJET DIAZOL FOTOGRAFICO GLOSSY CARTA 180 GR 20 HOJAS UNIDAD');
+insert into producto values('1636235', 'Calendario grande 2020', 1450, 2, 'Oficina','TACO CALENDARIO RHEIN 2020 GRANDE 16,8 CM X 10,9 CM UNIDAD');
+insert into producto values('1356980', 'Goma De Borrar: GOMA DE BORRAR FACTIS S20 MIGA SUAVIZADA 20 UNIDADES', 1451, 2, 'Oficina','Goma De Borrar: GOMA DE BORRAR FACTIS S20 MIGA SUAVIZADA 20 UNIDADES');
+
+insert into producto values('1638404', 'Gel Sanitizante para Manos RAYTAN', 18500, 2, 'Aseo','Gel Sanitizante para Manos RAYTAN 6 Unidades');
+insert into producto values('1638683', 'Envase Pulverizador Liquido Virginia', 6797, 2, 'Aseo','Envase Pulverizador Liquido Virginia 6 Unidades');
+insert into producto values('1638856', 'Bolsa de Basura Virutex 80x110cm Rollo 10 Bolsas', 16754, 2, 'Aseo','Bolsa de Basura Virutex 80x110cm Rollo 10 Bolsas 15 Unidades');
+insert into producto values('1638855', 'Bolsa de Basura Virutex 70x90cm Rollo 10 Bolsas', 24825, 2, 'Aseo','Bolsa de Basura Virutex 70x90cm Rollo 10 Bolsas 30 Unidades');
+insert into producto values('1638198', 'Bolso de Basura Clean Bolsa Aseo 50x70', 5588, 2, 'Aseo','Bolso de Basura Clean Bolsa Aseo 50x70 20 Unidades');
+insert into producto values('1639014', 'Cloro Clorinda Cloro Concentrado 4lts', 6554, 2, 'Aseo','Cloro Clorinda Cloro Concentrado 4lts 3 Unidades');
+insert into producto values('1638974', 'Desodorante Ambiental Poett Aromatizante Ambientes Aerosol Primavera', 7371, 2, 'Aseo','Desodorante Ambiental Poett Aromatizante Ambientes Aerosol Primavera 6 Unidades');
+insert into producto values('1638224', 'Detergente para Ropa Bio Frescura Detergente en Polvo Maric', 21330, 2, 'Aseo','Detergente para Ropa Bio Frescura Detergente en Polvo Maric 6 Unidades');
+insert into producto values('1639115', 'Escobilla Limpia Sanitario con Base Scotch-Brite Set Cepillo WC + Base Scotchbrite', 10430, 2, 'Aseo','Escobilla Limpia Sanitario con Base Scotch-Brite Set Cepillo WC + Base Scotchbrite 4 Unidades');
+insert into producto values('1638798', 'Escobillon Virutex Escobillón interior Multiuso VTX PRO', 22169, 2, 'Aseo','Escobillon Virutex Escobillón interior Multiuso VTX PRO 18 Unidades');
+insert into producto values('1639794', 'Guantes clínicos Virutex 100 Guantes Blancos Latex C/Polvo M VTX PRO', 25892, 2, 'Aseo','Guantes clínicos Virutex 100 Guantes Blancos Latex C/Polvo M VTX PRO 10 Unidades');
+insert into producto values('1638320', 'Jabón Tremex Jabon Liquido Aroma Floral', 8531, 2, 'Aseo','Jabón Tremex Jabon Liquido Aroma Floral 2 Unidades');
+insert into producto values('1639009', 'Limpiador de Pisos POETT Líquido Aromatizante Primavera', 11488, 2, 'Aseo','Limpiador de Pisos POETT Líquido Aromatizante Primavera 3 Unidades');
+insert into producto values('1639706', 'Papel higienico industrial elite Papel higienico economico una hoja 500M', 13851, 2, 'Aseo','Papel higienico industrial elite Papel higienico economico una hoja 500M 4 Unidades');
+insert into producto values('1639694', 'Toalla de Papel Industrial Elite Toalla de Papel Jumbo Blanca', 10699, 2, 'Aseo','Toalla de Papel Industrial Elite Toalla de Papel Jumbo Blanca 2 Rollos');
+insert into producto values('1638797', 'Trapero Reutilizable Virutex Trapero Doble C/Ojal VTX PRO', 54212, 2, 'Aseo','Trapero Reutilizable Virutex Trapero Doble C/Ojal VTX PRO 48 Unidades');
+
+CREATE TABLE "productoCompra" (
+  nSerie VARCHAR,
+  codigo VARCHAR,
+  cantidad integer,
+  CONSTRAINT pk_productoCompra PRIMARY KEY (nSerie)
+);
+
+CREATE TABLE "jardin" (
+  codigo VARCHAR,
+  tipo VARCHAR,
+  region VARCHAR,
+  comuna VARCHAR,
+  estado VARCHAR,
+  direccion VARCHAR,
+  nombre VARCHAR,
+  encargado VARCHAR,
+  CONSTRAINT "fk_compra_jardin" FOREIGN KEY (encargado) REFERENCES public."user" (nick),
+  CONSTRAINT pk_jardin PRIMARY KEY (codigo),
+  CONSTRAINT uq_jardin UNIQUE (nombre)
+);
+
+CREATE TABLE "compra" (
+  nSerie VARCHAR,
+  codigoJardin VARCHAR,
+  fecha date,
+  estado VARCHAR,
+  descripcion VARCHAR,
+  CONSTRAINT "fk_compra_jardin" FOREIGN KEY (codigoJardin) REFERENCES jardin (codigo),
+  CONSTRAINT pk_compra PRIMARY KEY (nSerie)
+);
+
