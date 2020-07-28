@@ -116,7 +116,13 @@ app.get('/compra', isAuthenticated,(req,res)=>{
   res.render('compra');
 })
 
+app.get('/pendiente', isAuthenticated,(req,res)=>{
+  res.render('pendiente');
+})
 
+app.get('/detalleCompras/:id', isAuthenticated,(req,res)=>{
+  res.render('detalleCompras',{id:req.params.id});
+})
 
 app.use(`/auth`, authRoutes);
 app.use(`/api`, isAuthenticated , apiRoutes);

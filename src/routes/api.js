@@ -33,6 +33,11 @@ router.get("/getEncargado",db.getEncargado);
 router.get("/getDatosEncargado/:id",db.getDatosEncargado);
 router.get("/getDatosEstablecimiento/:id",db.getDatosEstablecimiento);
 router.get("/getEstablecimientos",db.getEstablecimiento);
+router.get("/getAlternativos",db.getAlternativos);
+router.get("/getClasicos",db.getClasicos);
+router.get("/listaCompras",db.getCompras);
+router.get("/comprasPendientes",db.getcomprasPendientes);
+router.get("/getDetalles/:id",db.getDetalles);
 //Post
 router.post("/addProducto",db.postProductos);
 router.post("/addEncargado",db.postEncargado);
@@ -48,4 +53,7 @@ router.put('/deleteEstablecimiento/',db.deleteEstablecimiento);
 router.put('/editProducto/',db.editProducto)
 router.put('/editEncargado/',db.editEncargado)
 router.put('/editEstablecimiento/',db.editEstablecimiento)
+router.put('/quitarCompra/',db.quitarCompra)
+router.put('/aceptarCompra/',db.aceptarCompra)
+router.put('/eliminarCompra/',db.eliminarCompra)
 export default router;

@@ -22,7 +22,7 @@ const tabla = $("#tabla-producto").DataTable({
                             </button>`}
     ],
 });
-
+var serie;
 cargarProductos = () =>{
     let xhr = new XMLHttpRequest();
     xhr.open('get','api/listaProductos');
@@ -44,6 +44,7 @@ cargarProductos = () =>{
     xhr.send();
 }
 
+
 $('#tabla-producto').on( 'click', 'button', function ()  {
     let data = tabla.row( $(this).parents('tr') ).data();
     console.log(data)
@@ -51,7 +52,7 @@ $('#tabla-producto').on( 'click', 'button', function ()  {
         swal({
             title: `Eliminar producto`,
             icon: 'warning',
-            text: `¿Está seguro/a de Eliminar el producto "${data.codigo}"?`,
+            text: `¿Está seguro/a de Eliminar el producto "${data.nombre}"?`,
             buttons: {
                 confirm: {
                     text: 'Eliminar',
@@ -72,7 +73,7 @@ $('#tabla-producto').on( 'click', 'button', function ()  {
             }
         })
     }else{
-        window.open(`editProducto/${data.codigo}`, '_self');
+        window.open(`editProducto/${data.serie}`, '_self');
     }
 });
 

@@ -1,3 +1,7 @@
+$(()=>{
+   $("#region").val("Coquimbo");
+});
+
 agregarEstablecimiento = () => {
     event.preventDefault();
     let conf = 0;
@@ -10,7 +14,7 @@ agregarEstablecimiento = () => {
     let encargado = $("#encargado").val();
     if(codigo=="" || nombre=="" || tipo=="" || region=="" || comuna=="" || direccion=="" || encargado==""){
         conf=1;
-    }; 
+    };
 
     codigo = encodeURIComponent(codigo);
     nombre = encodeURIComponent(nombre);
@@ -19,7 +23,7 @@ agregarEstablecimiento = () => {
     comuna = encodeURIComponent(comuna);
     direccion = encodeURIComponent(direccion);
     encargado = encodeURIComponent(encargado);
-    
+
     let formData = `codigo=${codigo}&nombre=${nombre}&tipo=${tipo}&region=${region}&comuna=${comuna}&direccion=${direccion}&encargado=${encargado}`
 
     let xhr = new XMLHttpRequest();
@@ -47,7 +51,7 @@ agregarEstablecimiento = () => {
                     icon: 'warning',
                     text: 'No se pudo registrar'
                 });
-            } 
+            }
         }
     });
     console.log(formData);

@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no	">
 	<title>Home</title>
 	<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 	<link
@@ -11,15 +11,16 @@
 
 	<!-- Custom styles for this template-->
 	<link href="../css/sb-admin-2.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/sweetalert2.css">
-	<link rel="stylesheet" href="css/material.min.css">
-	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/sweetalert2.css">
+	<link rel="stylesheet" href="../css/material.min.css">
+	<link rel="stylesheet" href="../css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="../css/main.css">
 
-	<link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/book.ico" />
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="Shortcut Icon" type="image/x-icon" href="../assets/icons/book.ico" />
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
+
 
 </head>
 <body>
@@ -99,7 +100,7 @@
 			</div>
 			<figure class="full-width navLateral-body-tittle-menu">
 				<div>
-					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+					<img src="../assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption>
 					<span><span><span id='nombre1'></span>
@@ -247,13 +248,14 @@
 				</ul>
 			</nav>
 		</div>
-	</section>
+	</section >
 	<!-- pageContent -->
+
 	<section class="full-width pageContent" style="overflow: scroll">
 		<!-- navBar -->
 		<div class="full-width navBar">
 			<div class="full-width navBar-options">
-				<i class="zmdi zmdi-swap btn-menu" id="btn-menu"></i>
+				<i class="zmdi zmdi-swap btn-menu" id="btn-menu" ></i>
 				<div class="mdl-tooltip" for="btn-menu">Mostrar / Ocultar</div>
 				<nav class="navBar-options-list">
 					<ul class="list-unstyle">
@@ -264,60 +266,56 @@
 						<li class="text-condensedLight noLink" ><small id="nombre2"></small></li>
 						<li class="noLink">
 							<figure>
-								<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+								<img src="../assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
 							</figure>
 						</li>
 					</ul>
 				</nav>
 			</div>
-		</div>
-		<section class="full-width header-well">
-			<div class="full-width header-well-icon">
-				<i class="zmdi zmdi-store"></i>
-			</div>
-			<div class="full-width header-well-text container-fluid">
-				<br>
-				<br>
-				<h1 class="all-tittles" >Lista de Establecimientos</h1>
-				<a href="agregarJardin" type="button" class="btn btn-info" style="position: relative; left: 67%; top: -42px;">Agregar Establecimiento</a>
-				<div class="row">
-				  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-					<br/>
-					<button type="button" id="alternativos" class="btn btn-primary" style="position: relative; left: 67%; top: -42px;">Alternativos</button>
-					<button type="button" id="clasicos" class="btn btn-primary" style="position: relative; left: 67%; top: -42px;">Clasicos</button>
-					<button type="button" id="todos" class="btn btn-primary" style="position: relative; left: 67%; top: -42px;">Todos</button>
-					<div class="table-responsive">
-					  <form>
-						<table
-						  id="tabla-establecimiento"
-						  class="lead text-dark table table-striped table-bordered text-center"
-						  style="width:100%"
-						>
-						  <thead>
-							<th>Codigo</th>
-							<th>Tipo</th>
-							<th>Comuna</th>
-							<th>Dirección</th>
-							<th>Nombre</th>
-							<th>Encargado</th>
-							<th>Actualizar</th>
-							<th>Eliminar</th>
-						  </thead>
-						  <tbody></tbody>
-						</table>
-					  </form>
-					</div>
-				  </div>
 				</div>
-			</div>
-		</section>
-	</section>
+				<section class="full-width header-well">
+					<div class="full-width header-well-icon">
+						<i class="zmdi zmdi-store"></i>
+					</div>
+					<div class="full-width header-well-text container-fluid">
+						<br>
+						<br>
+						<h1 class="all-tittles" name="<%= id %>" id="id">Historial de compras</h1>
+						<button type="button" id="volver" class="btn btn-primary" style="position: relative; left: 67%; top: -42px;">Volver</button>
+						<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<br/>
+								<div class="table-responsive">
+									<form>
+										<table
+											id="table-detallesCompra"
+											class="lead text-dark table table-striped table-bordered text-center"
+											style="width:100%"
+										>
+											<thead>
+												<th>Numero de Serie</th>
+												<th>Producto</th>
+												<th>Cantidad</th>
+											</thead>
+											<tbody></tbody>
+										</table>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+				</section>
+
+
+
+
 </body>
-<script src="js/utils_js/jquery.min.js"></script>
-<script src="js/utils_js/bootstrap.bundle.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
-<script src="js/views_js/material.min.js" ></script>
-<script src="js/views_js/jquery.mCustomScrollbar.concat.min.js" ></script>
+<script src="../js/utils_js/jquery.min.js"></script>
+<script src="../js/utils_js/bootstrap.bundle.min.js"></script>
+<script>window.jQuery || document.write('<script src="../js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="../js/views_js/material.min.js" ></script>
+<script src="../js/views_js/jquery.mCustomScrollbar.concat.min.js" ></script>
 
 <!-- Bootstrap core JavaScript-->
 <script src="../vendor/jquery/jquery.min.js"></script>
@@ -339,6 +337,6 @@
 <script src="../js/utils_js/sb-admin.min.js"></script>
 <script src="../js/utils_js/jquery.rut.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="js/views_js/main.js" ></script>
-<script src="js/views_js/establecimiento.js" ></script>
+<script src="../js/views_js/main.js" ></script>
+<script src="../js/views_js/detalleCompras.js"></script>
 </html>

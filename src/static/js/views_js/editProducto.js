@@ -2,7 +2,7 @@ $(()=>{
     getDataProducto();
 });
 
-
+var serie;
 getDataProducto = () =>{
     let id = $("#codigo").attr("name");
     let xhr = new XMLHttpRequest();
@@ -11,6 +11,7 @@ getDataProducto = () =>{
     xhr.addEventListener('load',()=>{
         if(xhr.status === 200){
             let {data} = xhr.response;
+            serie = data.serie;
             $("#codigo").val(data.codigo)
             $("#nombre").val(data.nombre)
             $("#tipo").val(data.tipo)
@@ -28,9 +29,9 @@ getDataProducto = () =>{
 }
 
 editProducto = () =>{
-    
+    let serial = serie;
     let nombre = $("#nombre").val();
-    let codigo = $("#codigo").attr("name");
+    let codigo = $("#codigo").val();
     let tipo = $("#tipo").val();
     let prioridad = $("#prioridad").val();
     prioridad = parseInt(prioridad);
@@ -40,7 +41,8 @@ editProducto = () =>{
         codigo:codigo,
         tipo:tipo,
         prioridad:prioridad,
-        descripcion:descripcion
+        descripcion:descripcion,
+        serie:serial
     }
     let formData = `data=${encodeURIComponent(JSON.stringify(datos))}`;
     let xhr = new XMLHttpRequest();

@@ -45,6 +45,49 @@ cargarEstablecimientos = () =>{
     xhr.send();
 }
 
+cargarAlternativos = () =>{
+    let xhr = new XMLHttpRequest();
+    xhr.open('get','api/getAlternativos');
+    xhr.responseType ='json';
+    xhr.addEventListener('load',()=>{
+        if(xhr.status === 200){
+            let {data} = xhr.response;
+            tabla.clear();
+            tabla.rows.add(data);
+            tabla.draw();
+        }else{
+            swal({
+                title: 'Error',
+                icon: 'error',
+                text: 'Error al cargar los jardines.'
+            })
+        }
+    });
+    xhr.send();
+}
+
+cargarClasicos = () =>{
+    console.log("hola")
+    let xhr = new XMLHttpRequest();
+    xhr.open('get','api/getClasicos');
+    xhr.responseType ='json';
+    xhr.addEventListener('load',()=>{
+        if(xhr.status === 200){
+            let {data} = xhr.response;
+            tabla.clear();
+            tabla.rows.add(data);
+            tabla.draw();
+        }else{
+            swal({
+                title: 'Error',
+                icon: 'error',
+                text: 'Error al cargar los jardines.'
+            })
+        }
+    });
+    xhr.send();
+}
+
 $('#tabla-establecimiento').on( 'click', 'button', function ()  {
     let data = tabla.row( $(this).parents('tr') ).data();
     console.log(data)
@@ -107,3 +150,7 @@ eliminarEstablecimiento = (codigo) =>{
     });
     xhr.send(formData);
 }
+
+$("#todos").on('click',cargarEstablecimientos)
+$("#clasicos").on('click',cargarClasicos)
+$("#alternativos").on('click',cargarAlternativos)
