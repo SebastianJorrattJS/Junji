@@ -61,6 +61,14 @@ app.get('/requerimiento', isAuthenticated,(req,res)=>{
   res.render('requerimiento');
 })
 
+app.get('/solicitud', isAuthenticated,(req,res)=>{
+  res.render('solicitud');
+})
+
+app.get('/verlista', isAuthenticated,(req,res)=>{
+  res.render('verlista');
+})
+
 //Jardines
 app.get('/compania', isAuthenticated,(req,res)=>{
   res.render('compania');
@@ -95,8 +103,16 @@ app.get('/agregarEncargado', isAuthenticated,(req,res)=>{
   res.render('agregarEncargado');
 })
 
+app.get('/agregarAdmin', isAuthenticated,(req,res)=>{
+  res.render('agregarAdmin');
+})
+
 app.get('/editEncargado/:id', isAuthenticated, (req,res)=>{
   res.render('editEncargado',{id:req.params.id});
+})
+
+app.get('/editAdmin/:id', isAuthenticated, (req,res)=>{
+  res.render('editAdmin',{id:req.params.id});
 })
 
 //PRODUCTOS
@@ -114,6 +130,10 @@ app.get('/editProducto/:id', isAuthenticated, (req,res)=>{
 
 app.get('/compra', isAuthenticated,(req,res)=>{
   res.render('compra');
+})
+
+app.get('/RealizarCompra', isAuthenticated,(req,res)=>{
+  res.render('RealizarCompra');
 })
 
 app.get('/pendiente', isAuthenticated,(req,res)=>{

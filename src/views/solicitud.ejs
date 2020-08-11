@@ -275,15 +275,25 @@
 				</div>
 				<section class="full-width header-well">
 					<div class="full-width header-well-icon">
-
-					</div>
+                        
+                    </div>
 					<div class="full-width header-well-text container-fluid">
 						<br>
-						<br>
-						<h1 class="all-tittles" >Lista de productos </h1>
-						<a href="verlista" type="button" class="btn btn-primary" style="position: relative; left: 67%; top: -42px;">Ver lista</a>
-						<a href="solicitud" type="button" class="btn btn-primary" id="solicitud" style="position: relative; left: 67%; top: -42px;">Crear solicitud</a>
-						<button type="button" class="btn btn-primary" id="agregar" style="position: relative; left: 67%; top: -42px;">Agregar</button>
+                        <br>
+                        <h1 class="all-tittles" >Lista de productos </h1>
+                        <button type="button" id="volver" class="btn btn-primary" style="position: relative; right: -65%; top: -42px;">Volver</button>
+						<button type="button" class="btn btn-primary" id="efectuar" style="position: relative; left: 67%; top: -42px;">Efectuar</button>
+                        <br>
+                        <br>
+						<label>Tipo de Establecimiento:</label></label><select name="select" id="tipo" style="position: relative; right: -1%;">
+							<option value="Alternativo">Alternativos</option> 
+							<option value="Clasico" selected>Clasicos</option>
+							<option value="MDS">MDS</option>
+                        </select>
+						<label style="position: relative; right: -6%;">Establecimiento:</label><select id="establecimiento" name="select" style="position: relative; right: -7%;">
+							
+						</select>
+						<label style="position: relative; right: -10%;">Codigo:</label><input id="nserie" style="position: relative; right: -11%;"></input>
 						<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<br/>
@@ -300,7 +310,7 @@
 												<th>Prioridad</th>
 												<th>Tipo</th>
 												<th>Descripcion</th>
-												<th>Agregar</th>
+												<th>Cantidad</th>
 											</thead>
 											<tbody></tbody>
 										</table>
@@ -324,7 +334,7 @@
 
 <!-- Bootstrap core JavaScript-->
 <script src="../vendor/jquery/jquery.min.js"></script>
-<script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- Core plugin JavaScript-->
 <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
@@ -340,8 +350,7 @@
 <script src="../js/utils_js/jquery.dataTables.js"></script>
 <script src="../js/utils_js/dataTables.bootstrap4.js"></script>
 <script src="../js/utils_js/sb-admin.min.js"></script>
-<script src="../js/utils_js/jquery.rut.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="js/views_js/main.js" ></script>
-<script src="js/views_js/requerimiento.js"></script>
+<script src="js/views_js/solicitud.js"></script>
 </html>

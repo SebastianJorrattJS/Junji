@@ -4,13 +4,6 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no	">
 	<title>Home</title>
-	<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-	<link
-		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-		rel="stylesheet">
-
-	<!-- Custom styles for this template-->
-	<link href="../css/sb-admin-2.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/sweetalert2.css">
 	<link rel="stylesheet" href="css/material.min.css">
@@ -20,7 +13,6 @@
 	<link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/book.ico" />
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/style.css">
-
 
 </head>
 <body>
@@ -103,8 +95,7 @@
 					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
 				</div>
 				<figcaption>
-					<span><span><span id='nombre1'></span>
-					<br>
+					<span><span><span id='nombre1'></span><br>
 						<small>Administrador</small>
 					</span>
 				</figcaption>
@@ -112,7 +103,7 @@
 			<nav class="full-width">
 				<ul class="full-width list-unstyle menu-principal">
 				    <li class="full-width">
-						<a href="requerimiento" class="full-width">
+						<a href="../requerimiento" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-store"></i>
 							</div>
@@ -133,7 +124,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="compania" class="full-width">
+								<a href="../compania" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-balance"></i>
 									</div>
@@ -143,7 +134,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="proveedor" class="full-width">
+								<a href="../proveedor" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-truck"></i>
 									</div>
@@ -153,7 +144,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="categoria" class="full-width">
+								<a href="../categoria" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-label"></i>
 									</div>
@@ -177,7 +168,7 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="administrador" class="full-width">
+								<a href="../administrador" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-account"></i>
 									</div>
@@ -187,7 +178,7 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="encargadoEstablecimiento" class="full-width">
+								<a href="../encargadoEstablecimiento" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-accounts"></i>
 									</div>
@@ -200,7 +191,7 @@
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="producto" class="full-width">
+						<a href="../producto" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-washing-machine"></i>
 							</div>
@@ -236,7 +227,7 @@
 						</ul>
 					</li>
 				    <li class="full-width">
-						<a href="compra" class="full-width">
+						<a href="../compra" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
@@ -250,12 +241,11 @@
 		</div>
 	</section >
 	<!-- pageContent -->
-
 	<section class="full-width pageContent" style="overflow: scroll">
 		<!-- navBar -->
 		<div class="full-width navBar">
 			<div class="full-width navBar-options">
-				<i class="zmdi zmdi-swap btn-menu" id="btn-menu" ></i>
+				<i class="zmdi zmdi-swap btn-menu" id="btn-menu"></i>
 				<div class="mdl-tooltip" for="btn-menu">Mostrar / Ocultar</div>
 				<nav class="navBar-options-list">
 					<ul class="list-unstyle">
@@ -272,76 +262,89 @@
 					</ul>
 				</nav>
 			</div>
-				</div>
+        </div>
+
 				<section class="full-width header-well">
 					<div class="full-width header-well-icon">
 
 					</div>
-					<div class="full-width header-well-text container-fluid">
+					<div class="full-width header-well-text">
 						<br>
 						<br>
-						<h1 class="all-tittles" >Lista de productos </h1>
-						<a href="verlista" type="button" class="btn btn-primary" style="position: relative; left: 67%; top: -42px;">Ver lista</a>
-						<a href="solicitud" type="button" class="btn btn-primary" id="solicitud" style="position: relative; left: 67%; top: -42px;">Crear solicitud</a>
-						<button type="button" class="btn btn-primary" id="agregar" style="position: relative; left: 67%; top: -42px;">Agregar</button>
-						<div class="row">
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-								<br/>
-								<div class="table-responsive">
-									<form>
-										<table
-											id="tabla-producto"
-											class="lead text-dark table table-striped table-bordered text-center"
-											style="width:100%"
-										>
-											<thead>
-												<th>Codigo</th>
-												<th>Nombre</th>
-												<th>Prioridad</th>
-												<th>Tipo</th>
-												<th>Descripcion</th>
-												<th>Agregar</th>
-											</thead>
-											<tbody></tbody>
-										</table>
-									</form>
-								</div>
-							</div>
-						</div>
+						<h1 class="all-tittles">Agregar Encargado </h1>
+						<button type="button" id="volver" class="btn btn-primary" style="position: relative; left: 67%; top: -42px;">Volver</button>
+						<br>
 					</div>
 				</section>
-				</section>
 
-
+				<div class="container-fluid" >
+						<div class="container-flat-form" >
+								<div class="title-flat-form title-flat-blue">Registrar un nuevo encargado</div>
+								<form autocomplete="off">
+										<div class="row" >
+											 <div class="col-xs-12 col-sm-8 col-sm-offset-2" >
+														<div class="group-material">
+																<input id="nick" type="text" class="material-control tooltips-general" placeholder="Nick" required="" maxlength="15"  data-toggle="tooltip" data-placement="top" title="Escribe el codigo del producto">
+																<span class="highlight"></span>
+																<span class="bar"></span>
+																<label>Nick</label>
+														</div>
+														<div class="group-material">
+ 															 <input id="nombre" type="text" class="material-control tooltips-general" placeholder="Nombre" required="" maxlength="20" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del producto">
+ 															 <span class="highlight"></span>
+ 															 <span class="bar"></span>
+ 															 <label>Nombre</label>
+ 													 </div>
+													 <div class="group-material">
+ 															<input id="apellido" type="text" class="material-control tooltips-general" placeholder="Apellido" required="" maxlength="20" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe de que tipo es el producto">
+ 															<span class="highlight"></span>
+ 															<span class="bar"></span>
+ 															<label>Apellido</label>
+ 													</div>
+													<div class="group-material">
+															<input id="correo" type="text" class="material-control tooltips-general" placeholder="Correo" required="" maxlength="40" data-toggle="tooltip" data-placement="top" title="Escribe la prioridad del producto">
+															<span class="highlight"></span>
+															<span class="bar"></span>
+															<label>Correo</label>
+													</div>
+													<div class="group-material">
+ 														 <input id="telefono" type="text" class="material-control tooltips-general" placeholder="Telefono" required="" maxlength="20"  data-toggle="tooltip" data-placement="top" title="Escribe una descripcion del producto">
+ 														 <span class="highlight"></span>
+ 														 <span class="bar"></span>
+ 														 <label>Telefono</label>
+													 </div>
+													 <div class="group-material">
+														<input id="contra" type="text" class="material-control tooltips-general" placeholder="Contraseña" required="" maxlength="20"  data-toggle="tooltip" data-placement="top" title="Escribe una descripcion del producto">
+														<span class="highlight"></span>
+														<span class="bar"></span>
+														<label>Contraseña</label>
+												   </div>
+														<p class="text-center">
+																<button type="reset" class="btn btn-info" style="height:150%; margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
+																<button id="guardar" type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
+														</p>
+											 </div>
+									 </div>
+								</form>
+						</div>
+				</div>
 
 
 </body>
 <script src="js/utils_js/jquery.min.js"></script>
 <script src="js/utils_js/bootstrap.bundle.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
-<script src="js/views_js/material.min.js" ></script>
-<script src="js/views_js/jquery.mCustomScrollbar.concat.min.js" ></script>
+<script src="css/jquery-ui.js"></script>
+<script src="js/utils_js/jquery.easing.min.js"></script>
+<script src="js/utils_js/jquery.dataTables.js"></script>
+<script src="js/utils_js/dataTables.bootstrap4.js"></script>
+<script src="js/utils_js/sb-admin.min.js"></script>
+<script src="js/utils_js/jquery.rut.js"></script>
 
-<!-- Bootstrap core JavaScript-->
-<script src="../vendor/jquery/jquery.min.js"></script>
-<script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
-<script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
-<script src="../js/utils_js/sb-admin-2.min.js"></script>
-
-
-<script src="../js/utils_js/jquery.min.js"></script>
-<script src="../js/utils_js/bootstrap.bundle.min.js"></script>
-<script src="../css/jquery-ui.js"></script>
-<script src="../js/utils_js/jquery.easing.min.js"></script>
-<script src="../js/utils_js/jquery.dataTables.js"></script>
-<script src="../js/utils_js/dataTables.bootstrap4.js"></script>
-<script src="../js/utils_js/sb-admin.min.js"></script>
-<script src="../js/utils_js/jquery.rut.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="js/views_js/main.js" ></script>
-<script src="js/views_js/requerimiento.js"></script>
+<script>window.jQuery || document.write('<script src="js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="js/views_js/material.min.js"></script>
+<script src="js/views_js/sweetalert2.min.js"></script>
+<script src="js/views_js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="js/views_js/main.js"></script>
+<script src="js/views_js/agregarAdmin.js"></script>
 </html>

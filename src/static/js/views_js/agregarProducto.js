@@ -41,4 +41,9 @@ agregarProducto = () => {
     xhr.send(formData);
 };
 
+volver = () =>{
+    window.history.back();
+}
+$("#volver").on('click',volver)
+
 $("#guardar").on('click',agregarProducto);

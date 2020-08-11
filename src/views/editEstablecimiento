@@ -1,0 +1,69 @@
+<section class="full-width header-well">
+					<div class="full-width header-well-icon">
+
+					</div>
+					<div class="full-width header-well-text">
+						<br>
+						<br>
+						<h1 class="all-tittles">Editar establecimiento </h1>
+						<br>
+					</div>
+				</section>
+
+				<div class="container-fluid" >
+						<div class="container-flat-form" >
+								<div class="title-flat-form title-flat-blue">Actualizar un establecimiento</div>
+								<form autocomplete="off">
+										<div class="row" >
+											 <div class="col-xs-12 col-sm-8 col-sm-offset-2" >
+														<div class="group-material">
+																<input id="codigo" type="text" class="material-control tooltips-general" name="<%= id %>" placeholder="Código" required="" maxlength="20"  data-toggle="tooltip" data-placement="top" title="Escribe el codigo del producto">
+																<span class="highlight"></span>
+																<span class="bar"></span>
+																<label>Código</label>
+														</div>
+														<div class="group-material">
+ 															 <input id="nombre" type="text" class="material-control tooltips-general" placeholder="Nombre" required="" maxlength="20" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del producto">
+ 															 <span class="highlight"></span>
+ 															 <span class="bar"></span>
+ 															 <label>Nombre</label>
+ 													 </div>
+													 <div class="group-material">
+ 															<input id="tipo" type="text" class="material-control tooltips-general" placeholder="Tipo" required="" maxlength="20" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe de que tipo es el producto">
+ 															<span class="highlight"></span>
+ 															<span class="bar"></span>
+ 															<label>Tipo</label>
+ 													</div>
+													<div class="group-material">
+															<input id="region" type="text" class="material-control tooltips-general" placeholder="Región" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="Escribe la prioridad del producto">
+															<span class="highlight"></span>
+															<span class="bar"></span>
+															<label>Región</label>
+													</div>
+													<div class="group-material">
+ 														 <input id="comuna" type="text" class="material-control tooltips-general" placeholder="Comuna" required="" maxlength="100"  data-toggle="tooltip" data-placement="top" title="Escribe una descripcion del producto">
+ 														 <span class="highlight"></span>
+ 														 <span class="bar"></span>
+ 														 <label>Comuna</label>
+                                                  </div>
+                                                    <div class="group-material">
+                                                        <input id="direccion" type="text" class="material-control tooltips-general" placeholder="Dirección" required="" maxlength="100"  data-toggle="tooltip" data-placement="top" title="Escribe una descripcion del producto">
+                                                        <span class="highlight"></span>
+                                                        <span class="bar"></span>
+                                                        <label>Dirección</label>
+                                                    </div>
+                                                    <div class="group-material">
+                                                        <input id="encargado" type="text" class="material-control tooltips-general" placeholder="Ingrese el nick del Encargado" required="" maxlength="100"  data-toggle="tooltip" data-placement="top" title="Escribe una descripcion del producto">
+                                                        <span class="highlight"></span>
+                                                        <span class="bar"></span>
+                                                        <label>Encargado</label>
+                                                    </div>
+														<p class="text-center">
+																<button type="reset" class="btn btn-info" style="height:150%; margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
+																<button id="guardar" type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
+														</p>
+											 </div>
+									 </div>
+								</form>
+						</div>
+				</div>

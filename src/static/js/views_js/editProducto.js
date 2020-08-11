@@ -66,3 +66,8 @@ editProducto = () =>{
 }
 
 $("#guardar").on('click',editProducto)
+
+volver = () =>{
+    window.history.back();
+}
+$("#volver").on('click',volver)

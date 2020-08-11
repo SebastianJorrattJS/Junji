@@ -57,12 +57,84 @@ functionQueries.getProductos = (req, res, next) =>{
     })
 }
 
+functionQueries.getProductosLista = (req, res, next) =>{
+    connection.tx(t=>{
+        return t.any("SELECT * FROM producto Where estado = '1' or estado = '2'")
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Se encontraron los productos"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.getProductosaListar = (req, res, next) =>{
+    connection.tx(t=>{
+        return t.any("SELECT * FROM producto Where estado = '0'")
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Se encontraron los productos"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.getListaSolicitud = (req, res, next) =>{
+    connection.tx(t=>{
+        return t.any("SELECT * FROM producto Where estado = '1'")
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Se encontraron los productos"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
 functionQueries.getUser = (req, res, next) =>{
     connection.tx(t=>{
         return t.any('SELECT * FROM public."user" WHERE nick = $1', [req.user.nick])
     })
     .then(data=>{
         res.status(200).json({data: data, msg: "Se encontraro al usuario"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.cargaEstablecimientos = (req, res, next) =>{
+    connection.tx(t=>{
+        return t.any('SELECT * FROM public."jardin" WHERE division = $1', req.params.id)
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Se encontraro al establecimiento"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.cargaExportar = (req, res, next) =>{
+    connection.tx(t=>{
+        return t.any('SELECT DISTINCT p.codigo, p.nombre, SUM(pc.cantidad) as cantidad FROM public."producto" p, public."productoCompra" pc, public."compra" c WHERE c.estado = $1 and c.nserie = pc.nserie and pc.codigo = p.codigo GROUP BY p.codigo, p.nombre', ["1"])
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Se encontraro al establecimiento"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.buscarCodigo = (req, res, next) =>{
+    connection.tx(t=>{
+        return t.any('SELECT * FROM public."jardin" WHERE nombre = $1', req.params.id)
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Se encontro al establecimiento"})
     })
     .catch(err=>{
         res.status(500).json({err, msg: "Ha ocurrido un error"})
@@ -85,6 +157,18 @@ functionQueries.getDatosProducto = (req,res) =>{
 functionQueries.getEncargado = (req, res, next) =>{
     connection.tx(t=>{
         return t.any('SELECT * FROM public."user" WHERE tipo_usuario_id = $1 and estado = $2',["2","1"])
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Se encontraron a los encargados"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.getAdmin = (req, res, next) =>{
+    connection.tx(t=>{
+        return t.any('SELECT * FROM public."user" WHERE tipo_usuario_id = $1 and estado = $2',["1","1"])
     })
     .then(data=>{
         res.status(200).json({data: data, msg: "Se encontraron a los encargados"})
@@ -221,12 +305,46 @@ functionQueries.postEncargado = (req, res, next) => {
     });
 }
 
+functionQueries.postAdmin = (req, res, next) => {
+    User.register(
+        {nick: req.body.nick, tipo_usuario_id: 1, correo: req.body.correo,  nombre: req.body.nombre, apellido: req.body.apellido, telefono: req.body.telefono, estado: '1'},
+        req.body.contrasena,
+        (err, user) => {
+      console.log(err);
+      res.json({user, err})
+    });
+}
+
 functionQueries.postEstablecimiento = (req, res, next) => {
     connection.tx(t=>{
         return t.none('INSERT INTO jardin VALUES ($1, $2, $3, $4, $8, $5, $6, $7)', [req.body.codigo, req.body.tipo, req.body.region, req.body.comuna, req.body.direccion, req.body.nombre, req.body.encargado,"1"])
     })
     .then(data=>{
         res.status(200).json({data: data, msg:"Jardin agregado exitosamente."})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.creaCompra = (req, res, next) => {
+    connection.tx(t=>{
+        return t.none("INSERT INTO compra VALUES ($1, $2, TO_DATE($3,'YYYY/MM/DD'), $4)", [req.body.nserie, req.body.codigo, req.body.fecha, "1"])
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg:"Compra agregada exitosamente."})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.compraProducto = (req, res, next) => {
+    connection.tx(t=>{
+        return t.none('INSERT INTO public."productoCompra" VALUES ($1, $2, $3)', [req.body.nserie, req.body.codigo, req.body.cant])
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg:"Compra agregada exitosamente."})
     })
     .catch(err=>{
         res.status(500).json({err, msg: "Ha ocurrido un error"})
@@ -240,6 +358,18 @@ functionQueries.deleteProducto = (req,res) =>{
     })
     .then(data=>{
         res.status(200).json({data: data, msg: "Producto eliminado correctamente"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.deleteAdmin = (req,res) =>{
+    connection.tx(t=>{
+        return t.none('DELETE FROM public."user" WHERE nick =$1',req.params.id);
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Usuario eliminado correctamente"})
     })
     .catch(err=>{
         res.status(500).json({err, msg: "Ha ocurrido un error"})
@@ -356,6 +486,54 @@ functionQueries.eliminarCompra = (req,res) =>{
     })
     .then(data=>{
         res.status(200).json({data: data, msg: "Solicitud aceptada correctamente"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.agregaProductoLista = (req,res) =>{
+    connection.tx(t=>{
+        return t.none('UPDATE public."producto" SET estado = $2 WHERE codigo =$1',[req.body.codigo,"1"]);
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Encargado eliminado correctamente"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.quitarProductoLista = (req,res) =>{
+    connection.tx(t=>{
+        return t.none('UPDATE public."producto" SET estado = $2 WHERE codigo =$1',[req.body.codigo,"0"]);
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Encargado eliminado correctamente"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.mostrarProductoLista = (req,res) =>{
+    connection.tx(t=>{
+        return t.none('UPDATE public."producto" SET estado = $2 WHERE codigo =$1',[req.body.codigo,"1"]);
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Encargado eliminado correctamente"})
+    })
+    .catch(err=>{
+        res.status(500).json({err, msg: "Ha ocurrido un error"})
+    })
+}
+
+functionQueries.esconderProductoLista = (req,res) =>{
+    connection.tx(t=>{
+        return t.none('UPDATE public."producto" SET estado = $2 WHERE codigo =$1',[req.body.codigo,"2"]);
+    })
+    .then(data=>{
+        res.status(200).json({data: data, msg: "Encargado eliminado correctamente"})
     })
     .catch(err=>{
         res.status(500).json({err, msg: "Ha ocurrido un error"})
