@@ -14,7 +14,6 @@
 	<link rel="Shortcut Icon" type="image/x-icon" href="../assets/icons/book.ico" />
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-
 </head>
 <body>
 	<!-- Navegador Lateral -->
@@ -32,107 +31,53 @@
 				</div>
 				<figcaption>
 					<!-- Cargamos el nombre del usuario cargado desde main.js -->
-					<span><span><span id='nombre1'></span><br>
-					<!-- Indicamos el tipo de menu -->
-						<small>Administrador</small>
+					<span><span id='nombre1'></span>
+						<br><!-- Indicamos el tipo de usuario -->
+						<small>Encargado</small>
 					</span>
 				</figcaption>
 			</figure>
 			<nav class="full-width">
 				<!-- Menú principal del navegador -->
 				<ul class="full-width list-unstyle menu-principal">
-				    <li class="full-width">
-						<!-- link a la vista de requerimiento la cual se encuentra en views -->
-						<a href="../requerimiento" class="full-width">
+						<li class="full-width">
+							<!-- link a la vista de solcitud de un encargado la cual se encuentra en views -->
+						<a href="solicitudEncargado" class="full-width">
 							<div class="navLateral-body-cl">
-								<!-- Cargamos la imagen de la opción -->
 								<i class="zmdi zmdi-store"></i>
 							</div>
-							<!-- Titulo de la opcion -->
 							<div class="navLateral-body-cr">
-								REQUERIMIENTO ESTABLECIMIENTO
+								REALIZAR SOLICITUD
 							</div>
 						</a>
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<!-- link a la vista de establecimientos la cual se encuentra en views -->
-						<a href="../compania" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-case"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								ESTABLECIMIENTO
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<!-- Opcion desplegable a traves de una lista -->
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-face"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								USUARIO
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<!-- OPCION 1 DE USUARIO: link a la vista de lista de administradores la cual se encuentra en views -->
-								<a href="../administrador" class="full-width">
+						<!-- link a la vista de configuracion la cual se encuentra en views -->
+								<a href="configuracion" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
+										<i class="zmdi zmdi-widgets"></i>
 									</div>
 									<div class="navLateral-body-cr">
-										ADMINISTRADOR
+										CONFIGURACION
 									</div>
 								</a>
-							</li>
-							<li class="full-width">
-								<!-- OPCION 2 DE USUARIO: link a la vista de lista de encargados la cual se encuentra en views -->
-								<a href="../encargadoEstablecimiento" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr">
-										ENCARGADO ESTABLECIMIENTO
-									</div>
-								</a>
-							</li>
-						</ul>
 					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<!-- link a la vista de productos la cual se encuentra en views -->
-						<a href="../producto" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-washing-machine"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								PRODUCTO
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-				    <li class="full-width">
-						<!-- link a la vista de compras la cual se encuentra en views -->
-						<a href="../compra" class="full-width">
+						<li class="full-width">
+							<!-- link a la vista de lista de solicitudes del encargado la cual se encuentra en views -->
+						<a href="missolicitudes" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
 							<div class="navLateral-body-cr">
-								COMPRA
+								MIS SOLICIUDES
 							</div>
 						</a>
 					</li>
 				</ul>
 			</nav><!-- Fin del navegador -->
 		</div>
-	</section >
+	</section>
 	<div style="width: 1920px; height: 960px;">
 		<section class="full-width pageContent" style="overflow: scroll">
 			<!-- Navegador de arriba -->

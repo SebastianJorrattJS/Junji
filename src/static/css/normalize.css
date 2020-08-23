@@ -186,6 +186,9 @@ img {
   border: 0;
 }
 
+#avataar {
+  position: relative;
+}
 /**
  * Correct overflow not hidden in IE 9/10/11.
  */
@@ -203,6 +206,7 @@ svg:not(:root) {
 
 figure {
   margin: 1em 40px;
+  position: relative;
 }
 
 /**

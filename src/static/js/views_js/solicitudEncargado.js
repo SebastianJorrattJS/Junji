@@ -1,10 +1,8 @@
 $(()=>{
-    //Obtenemos el tipo de establecimiento
-    let tipo = $("#tipo").val()
     //Cargamos los productos
     cargarProductos();
-    //Cargamos el select de establecimientos según el tipo seleccionado en la otra combobox
-    cargarSelect(tipo);
+    //Cargamos el select de establecimientos del usuario
+    cargarSelect();
     //Llamamos a esta función que busca cual es el ultimo serial de solicitud realizado
     BuscaNserie()
 })
@@ -28,7 +26,6 @@ const tabla = $("#tabla-producto").DataTable({
         { defaultContent: '<input type="number" class="cant" value=0 name="cant" min="1" style="width:30%">'},
     ],
 });
-
 //Función que busca el serial mas alto en la base de datos 
 BuscaNserie = () =>{
     let xhr = new XMLHttpRequest();
@@ -72,8 +69,8 @@ cargarProductos = () =>{
     xhr.send();
 }
 
-//Según el tipo de establecimiento pasado por parametros rellena la combo box con todos los establecimientos
-cargarSelect = (id) =>{
+//Según el usuario de establecimiento pasado por parametros rellena la combo box con todos los establecimientos del encargado
+cargarSelect = () =>{
     var miSelect2 = document.getElementById("establecimiento");
     var length = miSelect2.options.length;
     //Se asegura de vaciar la comboBox cada ves que se llame la función
@@ -81,14 +78,14 @@ cargarSelect = (id) =>{
         miSelect2.options[i] = null;
     }
     let xhr = new XMLHttpRequest();
-    //Se llama a la ruta del api que obtiene los establecimientos según el tipo
-    xhr.open('get',`api/cargaEstablecimientos/${id}`);
+    //Se llama a la ruta del api que obtiene los establecimientos del usuario actual
+    xhr.open('get',`api/cargaMisEstablecimientos`);
     xhr.responseType ='json';
     xhr.addEventListener('load',()=>{
         if(xhr.status === 200){
             let {data} = xhr.response;
             for(i=0; i<data.length; i++){
-                //Se ingresan los valores obtenidos al Select
+                 //Se ingresan los valores obtenidos al Select
                 var valor = data[i].nombre;
                 var aTag = document.createElement('option');
                 aTag.setAttribute('value',valor);
@@ -139,20 +136,21 @@ buscarCodigo = () =>{
         })
     }
 }
-
 //Función que agrega la compra actual a la base de datos
 crearCompra = (codigo) =>{
     event.preventDefault();
     var conf = 0;
+     //Se adjunta la fecha actual
     var d = new Date();
-    //Se adjunta la fecha actual
     var month = d.getMonth()+1;
     var day = d.getDate();
+
     var fecha = (day<10 ? '0' : '') + day + '/' +
         (month<10 ? '0' : '') + month + '/' +   
         d.getFullYear() ;
     //Se encodean los datos
     codigo = encodeURIComponent(codigo);
+    nserie = encodeURIComponent(nserie);
     fecha = encodeURIComponent(fecha);
     let formData = `codigo=${codigo}&fecha=${fecha}`
     let xhr = new XMLHttpRequest();
@@ -179,7 +177,6 @@ crearCompra = (codigo) =>{
     });
     xhr.send(formData);
 }
-
 //Función que verifica que no se haya ingresado un numero negativo en el input
 Verifica = () => {
     var valor = 1;
@@ -191,7 +188,6 @@ Verifica = () => {
         }
     }return valor
 }
-
 //Función que recorre toda la tabla para seleccionar los productos
 efectuar = () =>{
     var filas = $("#tabla-producto").find("tr");
@@ -215,6 +211,7 @@ efectuar = () =>{
         for(var i in dataNuevo){
             //Si el primer valor no es nulo y la ultima celda posee una cantidad mayor a 0 se llama a la función compraProducto enviando el codigo y la cantidad
             if(dataNuevo[i][0] != null && dataNuevo[i][6] > 0){
+                console.log(dataNuevo[i][0])
                 compraProducto(dataNuevo[i][0],dataNuevo[i][6])
             }
         }
@@ -225,11 +222,10 @@ efectuar = () =>{
 
 //Función que llena la base de datos con cada producto seleccionado en la solicitud actual
 compraProducto = (id, cant) =>{
-    serie = nserie
     codigo = encodeURIComponent(id);
-    serie = encodeURIComponent(serie);
+    nserie = encodeURIComponent(nserie);
     cant = encodeURIComponent(cant);
-    let formData2 = `codigo=${codigo}&nserie=${serie}&cant=${cant}`
+    let formData2 = `codigo=${codigo}&nserie=${nserie}&cant=${cant}`
     event.preventDefault();
     let xhr2 = new XMLHttpRequest();
     //Ruta del api que llena la tabla productoCompra
@@ -240,8 +236,9 @@ compraProducto = (id, cant) =>{
         if(xhr2.status === 200){
             swal({
                 title: 'Exito',
-                text: 'Compras realizadas satisfactoriamente.'
-            })
+                icon: 'success',
+                text: 'Se logró generar la compra'
+            });
         }else{
             swal({
                 title: 'Error',
@@ -252,16 +249,6 @@ compraProducto = (id, cant) =>{
     });
     xhr2.send(formData2);
 }
-
-//Funcion que modifica el nuevo tipo seleccionado en la combobox y rellena nuevamente el otro select
-cambio = () =>{
-    let tipo = $("#tipo").val()
-    cargarSelect(tipo)
-}
-
-
-//Si se cambia el select de tipo se llama la funcion de cambio
-$("#tipo").change(cambio);
 //Si el usuario aprieta el botón efectuar se llama a la función buscarCodigo
 $("#efectuar").on('click',buscarCodigo)
 

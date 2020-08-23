@@ -3,169 +3,74 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no	">
-	<title>Home</title>
-	<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-	<link
-		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-		rel="stylesheet">
+	<title>Junji</title>
+	<!-- Llamamos a nuestos css que se encuentran en static-->
+	<link rel="stylesheet" href="../css/normalize.css">
+	<link rel="stylesheet" href="../css/sweetalert2.css">
+	<link rel="stylesheet" href="../css/material.min.css">
+	<link rel="stylesheet" href="../css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="../css/main.css">
 
-	<!-- Custom styles for this template-->
-	<link href="../css/sb-admin-2.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="css/sweetalert2.css">
-	<link rel="stylesheet" href="css/material.min.css">
-	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="css/main.css">
-
-	<link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/book.ico" />
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/style.css">
-
+	<link rel="Shortcut Icon" type="image/x-icon" href="../assets/icons/book.ico" />
+	<link rel="stylesheet" href="../css/bootstrap.min.css">
+	<link rel="stylesheet" href="../css/style.css">
 
 </head>
 <body>
-	<!-- Notifications area -->
-	<section class="full-width container-notifications">
-		<div class="full-width container-notifications-bg btn-Notification"></div>
-	    <section class="NotificationArea">
-	        <div class="full-width text-center NotificationArea-title tittles">Notifications <i class="zmdi zmdi-close btn-Notification"></i></div>
-	        <a href="#" class="Notification" id="notifation-unread-1">
-	            <div class="Notification-icon"><i class="zmdi zmdi-accounts-alt bg-info"></i></div>
-	            <div class="Notification-text">
-	                <p>
-	                    <i class="zmdi zmdi-circle"></i>
-	                    <strong>New User Registration</strong>
-	                    <br>
-	                    <small>Just Now</small>
-	                </p>
-	            </div>
-	        	<div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-1">Notification as UnRead</div>
-	        </a>
-	        <a href="#" class="Notification" id="notifation-read-1">
-	            <div class="Notification-icon"><i class="zmdi zmdi-cloud-download bg-primary"></i></div>
-	            <div class="Notification-text">
-	                <p>
-	                    <i class="zmdi zmdi-circle-o"></i>
-	                    <strong>New Updates</strong>
-	                    <br>
-	                    <small>30 Mins Ago</small>
-	                </p>
-	            </div>
-	            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-read-1">Notification as Read</div>
-	        </a>
-	        <a href="#" class="Notification" id="notifation-unread-2">
-	            <div class="Notification-icon"><i class="zmdi zmdi-upload bg-success"></i></div>
-	            <div class="Notification-text">
-	                <p>
-	                    <i class="zmdi zmdi-circle"></i>
-	                    <strong>Archive uploaded</strong>
-	                    <br>
-	                    <small>31 Mins Ago</small>
-	                </p>
-	            </div>
-	            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-unread-2">Notification as UnRead</div>
-	        </a>
-	        <a href="#" class="Notification" id="notifation-read-2">
-	            <div class="Notification-icon"><i class="zmdi zmdi-mail-send bg-danger"></i></div>
-	            <div class="Notification-text">
-	                <p>
-	                    <i class="zmdi zmdi-circle-o"></i>
-	                    <strong>New Mail</strong>
-	                    <br>
-	                    <small>37 Mins Ago</small>
-	                </p>
-	            </div>
-	            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-read-2">Notification as Read</div>
-	        </a>
-	        <a href="#" class="Notification" id="notifation-read-3">
-	            <div class="Notification-icon"><i class="zmdi zmdi-folder bg-primary"></i></div>
-	            <div class="Notification-text">
-	                <p>
-	                    <i class="zmdi zmdi-circle-o"></i>
-	                    <strong>Folder delete</strong>
-	                    <br>
-	                    <small>1 hours Ago</small>
-	                </p>
-	            </div>
-	            <div class="mdl-tooltip mdl-tooltip--left" for="notifation-read-3">Notification as Read</div>
-	        </a>
-	    </section>
-	</section>
-	<!-- navLateral -->
+	<!-- Navegador Lateral -->
 	<section class="full-width navLateral">
 		<div class="full-width navLateral-bg btn-menu"></div>
 		<div class="full-width navLateral-body">
+			<!-- Cuerpo del PANEL -->
 			<div class="full-width navLateral-body-logo text-center tittles">
 				<i class="zmdi zmdi-close btn-menu"></i> PANEL
 			</div>
 			<figure class="full-width navLateral-body-tittle-menu">
 				<div>
-					<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
+					<!-- Cargamos nuestro avatar el cual será modificable desde el main.js -->
+					<img alt="Avatar" class="img-responsive Perfil">
 				</div>
 				<figcaption>
-					<span><span><span id='nombre1'></span>
-					<br>
+					<!-- Cargamos el nombre del usuario cargado desde main.js -->
+					<span><span><span id='nombre1'></span><br>
+					<!-- Indicamos el tipo de menu -->
 						<small>Administrador</small>
 					</span>
 				</figcaption>
 			</figure>
 			<nav class="full-width">
+				<!-- Menú principal del navegador -->
 				<ul class="full-width list-unstyle menu-principal">
 				    <li class="full-width">
-						<a href="requerimiento" class="full-width">
+						<!-- link a la vista de requerimiento la cual se encuentra en views -->
+						<a href="../requerimiento" class="full-width">
 							<div class="navLateral-body-cl">
+								<!-- Cargamos la imagen de la opción -->
 								<i class="zmdi zmdi-store"></i>
 							</div>
+							<!-- Titulo de la opcion -->
 							<div class="navLateral-body-cr">
 								REQUERIMIENTO ESTABLECIMIENTO
 							</div>
 						</a>
 					</li>
+					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
+						<!-- link a la vista de establecimientos la cual se encuentra en views -->
+						<a href="../compania" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-case"></i>
 							</div>
 							<div class="navLateral-body-cr">
-								ADMINISTRACIÓN
+								ESTABLECIMIENTO
 							</div>
 							<span class="zmdi zmdi-chevron-left"></span>
 						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="compania" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-balance"></i>
-									</div>
-									<div class="navLateral-body-cr">
-										ESTABLECIMIENTO
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="proveedor" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-truck"></i>
-									</div>
-									<div class="navLateral-body-cr">
-										PROVEEDOR
-									</div>
-								</a>
-							</li>
-							<li class="full-width">
-								<a href="categoria" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-label"></i>
-									</div>
-									<div class="navLateral-body-cr">
-										CATEGORIA
-									</div>
-								</a>
-							</li>
-						</ul>
+						
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
+						<!-- Opcion desplegable a traves de una lista -->
 						<a href="#!" class="full-width btn-subMenu">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-face"></i>
@@ -177,7 +82,8 @@
 						</a>
 						<ul class="full-width menu-principal sub-menu-options">
 							<li class="full-width">
-								<a href="administrador" class="full-width">
+								<!-- OPCION 1 DE USUARIO: link a la vista de lista de administradores la cual se encuentra en views -->
+								<a href="../administrador" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-account"></i>
 									</div>
@@ -187,7 +93,8 @@
 								</a>
 							</li>
 							<li class="full-width">
-								<a href="encargadoEstablecimiento" class="full-width">
+								<!-- OPCION 2 DE USUARIO: link a la vista de lista de encargados la cual se encuentra en views -->
+								<a href="../encargadoEstablecimiento" class="full-width">
 									<div class="navLateral-body-cl">
 										<i class="zmdi zmdi-accounts"></i>
 									</div>
@@ -200,7 +107,8 @@
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<a href="producto" class="full-width">
+						<!-- link a la vista de productos la cual se encuentra en views -->
+						<a href="../producto" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-washing-machine"></i>
 							</div>
@@ -210,33 +118,9 @@
 						</a>
 					</li>
 					<li class="full-width divider-menu-h"></li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-wrench"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								CONFIGURACION
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<a href="#!" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-widgets"></i>
-									</div>
-									<div class="navLateral-body-cr">
-										CUENTA
-									</div>
-								</a>
-							</li>
-						</ul>
-					</li>
 				    <li class="full-width">
-						<a href="compra" class="full-width">
+						<!-- link a la vista de compras la cual se encuentra en views -->
+						<a href="../compra" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
@@ -246,103 +130,98 @@
 						</a>
 					</li>
 				</ul>
-			</nav>
+			</nav><!-- Fin del navegador -->
 		</div>
 	</section >
-	<!-- pageContent -->
-
-	<section class="full-width pageContent" style="overflow: scroll">
-		<!-- navBar -->
-		<div class="full-width navBar">
-			<div class="full-width navBar-options">
-				<i class="zmdi zmdi-swap btn-menu" id="btn-menu" ></i>
-				<div class="mdl-tooltip" for="btn-menu">Mostrar / Ocultar</div>
-				<nav class="navBar-options-list">
-					<ul class="list-unstyle">
-						<li class="btn-exit" id="btn-exit">
-							<i class="zmdi zmdi-power"></i>
-							<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>
-						</li>
-						<li class="text-condensedLight noLink" ><small id="nombre2"></small></li>
-						<li class="noLink">
-							<figure>
-								<img src="assets/img/avatar-male.png" alt="Avatar" class="img-responsive">
-							</figure>
-						</li>
-					</ul>
-				</nav>
-			</div>
+	<!-- Opcion de resolución -->
+	<div style="width: 1920px; height: 960px;">
+		<section class="full-width pageContent" style="overflow: scroll">
+			<!-- Navegador de arriba -->
+			<div class="full-width navBar">
+				<div class="full-width navBar-options">
+					<i class="zmdi zmdi-swap btn-menu" id="btn-menu" ></i>
+					<!-- Opcion para mostrar u ocultar el panel -->
+					<div class="mdl-tooltip" for="btn-menu">Mostrar / Ocultar</div>
+					<nav class="navBar-options-list">
+						<ul class="list-unstyle">
+							<!-- btn-exit será la clase e id para cerrar la secion del usuario -->
+							<li class="btn-exit" id="btn-exit">
+								<i class="zmdi zmdi-power"></i>
+								<div class="mdl-tooltip" for="btn-exit">Cerrar Sesión</div>
+							</li>
+							<!-- Carga el nombre del usuario desde el main.js -->
+							<li class="text-condensedLight noLink" ><small id="nombre2"></small></li>
+							<li class="noLink">
+								<figure>
+									<!-- Carga el avatar del usuario desde el main.js -->
+									<img alt="Avatar" class="img-responsive Perfil">
+								</figure>
+							</li>
+						</ul>
+					</nav><!-- Fin del navegador -->
 				</div>
-				<section class="full-width header-well">
-					<div class="full-width header-well-icon">
-                        
-                    </div>
-					<div class="full-width header-well-text container-fluid">
-						<br>
-                        <br>
-                        <h1 class="all-tittles" >Lista de productos </h1>
-                        <button type="button" id="volver" class="btn btn-primary" style="position: relative; right: -65%; top: -42px;">Volver</button>
-						<button type="button" class="btn btn-primary" id="efectuar" style="position: relative; left: 67%; top: -42px;">Efectuar</button>
-                        <br>
-                        <br>
-						<label>Tipo de Establecimiento:</label></label><select name="select" id="tipo" style="position: relative; right: -1%;">
-							<option value="Alternativo">Alternativos</option> 
-							<option value="Clasico" selected>Clasicos</option>
-							<option value="MDS">MDS</option>
-                        </select>
-						<label style="position: relative; right: -6%;">Establecimiento:</label><select id="establecimiento" name="select" style="position: relative; right: -7%;">
+			</div>
+					<!-- Contenido de la vista -->
+					<section class="full-width header-well">
+						<div class="full-width header-well-icon">
 							
-						</select>
-						<label style="position: relative; right: -10%;">Codigo:</label><input id="nserie" style="position: relative; right: -11%;"></input>
-						<div class="row">
-							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-								<br/>
-								<div class="table-responsive">
-									<form>
-										<table
-											id="tabla-producto"
-											class="lead text-dark table table-striped table-bordered text-center"
-											style="width:100%"
-										>
-											<thead>
-												<th>Codigo</th>
-												<th>Nombre</th>
-												<th>Prioridad</th>
-												<th>Tipo</th>
-												<th>Descripcion</th>
-												<th>Cantidad</th>
-											</thead>
-											<tbody></tbody>
-										</table>
-									</form>
+						</div>
+						<div class="full-width header-well-text container-fluid">
+							<br>
+							<br>
+							<!-- Título -->
+							<h1 class="all-tittles" style="left: 37%">Lista de productos </h1>
+							<!-- Boton que realiza la solicitud -->
+							<button type="button" class="btn btn-primary" id="efectuar" style="position: relative; left: 75%; top: 55px;">Realizar requerimiento</button>
+							<br>
+							<br>
+							<!-- Combobox con los tipos de establecimientos -->
+							<label>Tipo de Establecimiento:</label></label><select name="select" id="tipo" style="position: relative; right: -1%;">
+								<option value="Alternativo">Alternativos</option> 
+								<option value="Clasico" selected>Clasicos</option>
+								<option value="MDS">MDS</option>
+							</select>
+							<!-- Combobox con los establecimientos que cargarán según el valor del comboBox anterior-->
+							<label style="position: relative; right: -6%;">Establecimiento:</label><select id="establecimiento" name="select" style="position: relative; right: -7%;">
+								
+							</select>
+							<div class="row">
+								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+									<br/>
+									<!-- Creamos una tabla responsiva con Jquery datatables -->
+									<div class="table-responsive">
+										<form>
+											<table
+												id="tabla-producto"
+												class="lead text-dark table table-striped table-bordered text-center"
+												style="width:100%"
+											>
+												<thead>
+													<th>Código</th>
+													<th>Nombre</th>
+													<th>Prioridad</th>
+													<th>Tipo</th>
+													<th>Descripción</th>
+													<th>Cantidad</th>
+												</thead>
+												<tbody></tbody>
+											</table>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</section>
-				</section>
-
-
-
-
+					</section>
+			</section>
+	</div>
 </body>
+<!-- Llamadas a los scripts desde la carpeta static -->
 <script src="js/utils_js/jquery.min.js"></script>
-<script src="js/utils_js/bootstrap.bundle.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
-<script src="js/views_js/material.min.js" ></script>
 <script src="js/views_js/jquery.mCustomScrollbar.concat.min.js" ></script>
-
-<!-- Bootstrap core JavaScript-->
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-<!-- Core plugin JavaScript-->
 <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Custom scripts for all pages-->
 <script src="../js/utils_js/sb-admin-2.min.js"></script>
-
-
 <script src="../js/utils_js/jquery.min.js"></script>
 <script src="../js/utils_js/bootstrap.bundle.min.js"></script>
 <script src="../css/jquery-ui.js"></script>
@@ -350,7 +229,7 @@
 <script src="../js/utils_js/jquery.dataTables.js"></script>
 <script src="../js/utils_js/dataTables.bootstrap4.js"></script>
 <script src="../js/utils_js/sb-admin.min.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../js/views_js/sweetalert2.min.js"></script>
 <script src="js/views_js/main.js" ></script>
 <script src="js/views_js/solicitud.js"></script>
 </html>

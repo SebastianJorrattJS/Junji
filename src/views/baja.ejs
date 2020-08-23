@@ -2,18 +2,24 @@
 <html lang="es">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no	">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Junji</title>
-	<!-- Llamamos a nuestos css que se encuentran en static-->
-	<link rel="stylesheet" href="../css/normalize.css">
-	<link rel="stylesheet" href="../css/sweetalert2.css">
-	<link rel="stylesheet" href="../css/material.min.css">
-	<link rel="stylesheet" href="../css/material-design-iconic-font.min.css">
-	<link rel="stylesheet" href="../css/main.css">
+	<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
 
-	<link rel="Shortcut Icon" type="image/x-icon" href="../assets/icons/book.ico" />
-	<link rel="stylesheet" href="../css/bootstrap.min.css">
-	<link rel="stylesheet" href="../css/style.css">
+		<!-- Llamamos a nuestos css que se encuentran en static-->
+	<link href="../css/sb-admin-2.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/normalize.css">
+	<link rel="stylesheet" href="css/sweetalert2.css">
+	<link rel="stylesheet" href="css/material.min.css">
+	<link rel="stylesheet" href="css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" href="css/main.css">
+
+	<link rel="Shortcut Icon" type="image/x-icon" href="assets/icons/book.ico" />
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
@@ -32,7 +38,8 @@
 				</div>
 				<figcaption>
 					<!-- Cargamos el nombre del usuario cargado desde main.js -->
-					<span><span><span id='nombre1'></span><br>
+					<span><span><span id='nombre1'></span>
+					<br>
 					<!-- Indicamos el tipo de menu -->
 						<small>Administrador</small>
 					</span>
@@ -45,10 +52,8 @@
 						<!-- link a la vista de requerimiento la cual se encuentra en views -->
 						<a href="../requerimiento" class="full-width">
 							<div class="navLateral-body-cl">
-								<!-- Cargamos la imagen de la opción -->
 								<i class="zmdi zmdi-store"></i>
 							</div>
-							<!-- Titulo de la opcion -->
 							<div class="navLateral-body-cr">
 								REQUERIMIENTO ESTABLECIMIENTO
 							</div>
@@ -132,14 +137,14 @@
 				</ul>
 			</nav><!-- Fin del navegador -->
 		</div>
-	</section >
+	</section>
 	<!-- Opcion de resolución -->
 	<div style="width: 1920px; height: 960px;">
 		<section class="full-width pageContent" style="overflow: scroll">
 			<!-- Navegador de arriba -->
 			<div class="full-width navBar">
 				<div class="full-width navBar-options">
-					<i class="zmdi zmdi-swap btn-menu" id="btn-menu" ></i>
+					<i class="zmdi zmdi-swap btn-menu" id="btn-menu"></i>
 					<!-- Opcion para mostrar u ocultar el panel -->
 					<div class="mdl-tooltip" for="btn-menu">Mostrar / Ocultar</div>
 					<nav class="navBar-options-list">
@@ -160,58 +165,49 @@
 						</ul>
 					</nav><!-- Fin del navegador -->
 				</div>
-					</div><!-- Contenido de la vista -->
-					<section class="full-width header-well">
-						<div class="full-width header-well-icon">
-							
+			</div>
+			<!-- Contenido de la vista -->
+			<section class="full-width header-well">
+				<div class="full-width header-well-icon">
+				</div>
+				<div class="full-width header-well-text container-fluid">
+					<br>
+					<br>
+					<!-- Título -->
+					<h1 class="all-tittles" >Listado de establecimientos deshabilitados</h1>
+					<div class="row">
+					<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+						<br/>
+						<!-- Generamos una tabla responsive con JQuery datatables -->
+						<div class="table-responsive">
+						<form>
+							<table
+							id="tabla-establecimiento"
+							class="lead text-dark table table-striped table-bordered text-center"
+							style="width:100%"
+							>
+							<thead>
+								<th>Código</th>
+								<th>Tipo</th>
+								<th>Comuna</th>
+								<th>Dirección</th>
+								<th>Nombre</th>
+								<th>Teléfono</th>
+								<th>Encargado 1</th>
+								<th>Encargado 2</th>
+								<th>Division</th>
+								<th>Recuperar</th>
+							</thead>
+							<tbody></tbody>
+							</table>
+						</form>
 						</div>
-						<div class="full-width header-well-text container-fluid">
-							<br>
-							<br>
-							<!-- Título -->
-							<h1 class="all-tittles" style="position: relative; left: 32%;">Lista de productos </h1>
-							<!-- Boton que exporta la tabla de la vista -->
-							<button type="button" class="btn btn-primary" id="efectuar" style="position: relative; left: 67%; top: -42px;">Exportar</button>
-							<!-- Boton que realiza todo el calculo -->
-							<button type="button" class="btn btn-primary" id="calcular" style="position: relative; left: 67%; top: -42px;">Calcular</button>
-							<br>
-							<br>
-							<!-- Iva ajustable por el usuario validaNumericos evita que se puedan ingresar letras a este input -->
-							<label style="position: relative; right: -0.5%;">IVA =</label><input id="iva" onkeypress='return validaNumericos(event)' value="19" style="position: relative; right: -1%; width: 4%;"></input>
-							<label style="position: relative; right: -1%;">%</label>
-							<div class="row">
-								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-									<br/>
-									<!-- Creamos una tabla responsiva con Jquery datatables -->
-									<div class="table-responsive">
-										<form>
-											<table
-												id="tabla-producto"
-												class="lead text-dark table table-striped table-bordered text-center"
-												style="width:100%"
-											>
-												<thead>
-													<th>Codigo</th>
-													<th>Producto</th>
-													<th>Cantidad</th>
-													<th>Precio Uni. Neto</th>
-													<th>Precio Uni. Bruto</th>
-													<th>Sub total Neto</th>
-													<th>Sub total Bruto</th>
-												</thead>
-												<tbody></tbody>
-											</table>
-										</form>
-									</div>
-								</div>
-							</div>
-							<br><br>
-							<label style="position: relative; right: -10%;">Total:</label><input readonly id="total" style="position: relative; right: -11%; width:5%;"></input>
-						</div>
-					</section>
+					</div>
+					</div>
+				</div>
 			</section>
+		</section>
 	</div>
-
 </body>
 <!-- Llamadas a los scripts desde la carpeta static -->
 <script src="js/utils_js/jquery.min.js"></script>
@@ -219,10 +215,15 @@
 <script>window.jQuery || document.write('<script src="js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="js/views_js/material.min.js" ></script>
 <script src="js/views_js/jquery.mCustomScrollbar.concat.min.js" ></script>
+
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+
 <script src="../js/utils_js/sb-admin-2.min.js"></script>
+
+
 <script src="../js/utils_js/jquery.min.js"></script>
 <script src="../js/utils_js/bootstrap.bundle.min.js"></script>
 <script src="../css/jquery-ui.js"></script>
@@ -231,7 +232,7 @@
 <script src="../js/utils_js/dataTables.bootstrap4.js"></script>
 <script src="../js/utils_js/sb-admin.min.js"></script>
 <script src="../js/utils_js/jquery.rut.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="../js/views_js/sweetalert2.min.js"></script>
 <script src="js/views_js/main.js" ></script>
-<script src="js/views_js/RealizarCompra.js"></script>
+<script src="js/views_js/baja.js" ></script>
 </html>

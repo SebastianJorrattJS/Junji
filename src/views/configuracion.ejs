@@ -14,7 +14,6 @@
 	<link rel="Shortcut Icon" type="image/x-icon" href="../assets/icons/book.ico" />
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
-
 </head>
 <body>
 	<!-- Navegador Lateral -->
@@ -32,110 +31,56 @@
 				</div>
 				<figcaption>
 					<!-- Cargamos el nombre del usuario cargado desde main.js -->
-					<span><span><span id='nombre1'></span><br>
-					<!-- Indicamos el tipo de menu -->
-						<small>Administrador</small>
+					<span><span id='nombre1'></span>
+						<br><!-- Indicamos el tipo de usuario -->
+						<small>Encargado</small>
 					</span>
 				</figcaption>
 			</figure>
 			<nav class="full-width">
 				<!-- Menú principal del navegador -->
 				<ul class="full-width list-unstyle menu-principal">
-				    <li class="full-width">
-						<!-- link a la vista de requerimiento la cual se encuentra en views -->
-						<a href="../requerimiento" class="full-width">
+						<li class="full-width">
+							<!-- link a la vista de solcitud de un encargado la cual se encuentra en views -->
+						<a href="solicitudEncargado" class="full-width">
 							<div class="navLateral-body-cl">
-								<!-- Cargamos la imagen de la opción -->
 								<i class="zmdi zmdi-store"></i>
 							</div>
-							<!-- Titulo de la opcion -->
 							<div class="navLateral-body-cr">
-								REQUERIMIENTO ESTABLECIMIENTO
+								REALIZAR SOLICITUD
 							</div>
 						</a>
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<!-- link a la vista de establecimientos la cual se encuentra en views -->
-						<a href="../compania" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-case"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								ESTABLECIMIENTO
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<!-- Opcion desplegable a traves de una lista -->
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-face"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								USUARIO
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<!-- OPCION 1 DE USUARIO: link a la vista de lista de administradores la cual se encuentra en views -->
-								<a href="../administrador" class="full-width">
+						<!-- link a la vista de configuracion la cual se encuentra en views -->
+								<a href="configuracion" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
+										<i class="zmdi zmdi-widgets"></i>
 									</div>
 									<div class="navLateral-body-cr">
-										ADMINISTRADOR
+										CONFIGURACION
 									</div>
 								</a>
-							</li>
-							<li class="full-width">
-								<!-- OPCION 2 DE USUARIO: link a la vista de lista de encargados la cual se encuentra en views -->
-								<a href="../encargadoEstablecimiento" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr">
-										ENCARGADO ESTABLECIMIENTO
-									</div>
-								</a>
-							</li>
-						</ul>
 					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<!-- link a la vista de productos la cual se encuentra en views -->
-						<a href="../producto" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-washing-machine"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								PRODUCTO
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-				    <li class="full-width">
-						<!-- link a la vista de compras la cual se encuentra en views -->
-						<a href="../compra" class="full-width">
+						<li class="full-width">
+							<!-- link a la vista de lista de solicitudes del encargado la cual se encuentra en views -->
+						<a href="missolicitudes" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
 							<div class="navLateral-body-cr">
-								COMPRA
+								MIS SOLICIUDES
 							</div>
 						</a>
 					</li>
 				</ul>
 			</nav><!-- Fin del navegador -->
 		</div>
-	</section >
+	</section>
 	<!-- Opcion de resolución -->
 	<div style="width: 1920px; height: 960px;">
-		<section class="full-width pageContent" style="overflow: scroll">
+		<section class="full-width pageContent">
 			<!-- Navegador de arriba -->
 			<div class="full-width navBar">
 				<div class="full-width navBar-options">
@@ -163,11 +108,14 @@
 			</div>
 			<!-- Contenido de la vista -->
 			<section class="full-width header-well">
+				<div class="full-width header-well-icon">
+					
+				</div>
 				<div class="full-width header-well-text">
 					<br>
 					<br>
 					<!-- Título -->
-					<h1 style="left: 20%">Actualizar producto </h1>
+					<h1 style="left: 19%">Actualizar Encargado </h1>
 					<br>
 				</div>
 			</section>
@@ -175,20 +123,19 @@
 				<!-- Creamos el container para el formulario, es decir el contorno -->
 				<div class="container-flat-form">
 					<!-- Titulo del formulario en azul -->
-					<div class="title-flat-form title-flat-blue">Registrar un nuevo producto</div>
+					<div class="title-flat-form title-flat-blue">Edita a un encargado</div>
 						<form autocomplete="off">
-							<!-- Creamos una fila para el container la cual se dividirá en 2 filas para los datos -->	
+							<!-- Creamos una fila para el container la cual se dividirá en 2 filas para los datos -->
 							<div class="row">
 								<div class="col-xs-12 col-sm-8 col-sm-offset-2" >
 									<!-- Creamos la primera fila para el primer listado de datos el cual estara a la izquierda-->
-									<div class="row" style='width: 50%; float: left; position: relative; right: -5%;'>
+									<div class="row" style='width: 50%; float: left; position: relative; right: -15%;'>
 										<div class="col-xs-12 col-sm-8 col-sm-offset-2" >
 											<div class="group-material">
-												<!-- el name guarda la variable pasada por parametros -->
-												<input id="codigo" type="text" name="<%= id %>" class="material-control tooltips-general" placeholder="Codigo" required="" maxlength="20"  data-toggle="tooltip" data-placement="top" title="Escribe el codigo del producto">
+												<input id="nick" type="text" class="material-control tooltips-general" placeholder="Nick" required="" maxlength="15"  data-toggle="tooltip" data-placement="top" title="Escribe el codigo del producto">
 												<span class="highlight"></span>
 												<span class="bar"></span>
-												<label>Codigo</label>
+												<label>Nick</label>
 											</div>
 											<div class="group-material">
 												<input id="nombre" type="text" class="material-control tooltips-general" placeholder="Nombre" required="" maxlength="20" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe el nombre del producto">
@@ -197,29 +144,36 @@
 												<label>Nombre</label>
 											</div>
 											<div class="group-material">
-												<input id="tipo" type="text" class="material-control tooltips-general" placeholder="Tipo" required="" maxlength="20" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe de que tipo es el producto">
+												<input id="apellido" type="text" class="material-control tooltips-general" placeholder="Apellido" required="" maxlength="20" pattern="[a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,70}" data-toggle="tooltip" data-placement="top" title="Escribe de que tipo es el producto">
 												<span class="highlight"></span>
 												<span class="bar"></span>
-												<label>Tipo</label>
+												<label>Apellido</label>
 											</div>
 										</div>
 									</div>
 									<!-- Creamos la segunda fila para el segundo listado de datos el cual se encontrará a la derecha-->
-									<div class="row" style='width: 50%; float: right; position: relative; left: 40%;'>
+									<div class="row" style='width: 50%; float: right; position: relative; left: 50%;'>
 										<div class="col-xs-12 col-sm-8 col-sm-offset-2" >
 											<div class="group-material">
-												<input id="prioridad" type="text" onkeypress='return validaNumericos(event)' class="material-control tooltips-general" placeholder="Prioridad" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="Escribe la prioridad del producto">
+												<input id="correo" type="text" class="material-control tooltips-general" placeholder="Correo" required="" maxlength="20" data-toggle="tooltip" data-placement="top" title="Escribe la prioridad del producto">
 												<span class="highlight"></span>
 												<span class="bar"></span>
-												<label>Prioridad</label>
+												<label>Correo</label>
 											</div>
 											<div class="group-material">
-												<input id="descripcion" type="text" class="material-control tooltips-general" placeholder="Descripcion" required="" maxlength="100"  data-toggle="tooltip" data-placement="top" title="Escribe una descripcion del producto">
+												<input id="telefono" type="text" class="material-control tooltips-general" placeholder="Telefono" required="" maxlength="20"  data-toggle="tooltip" data-placement="top" title="Escribe una descripcion del producto">
 												<span class="highlight"></span>
 												<span class="bar"></span>
-												<label>Descripcion</label>
+												<label>Telefono</label>
 											</div>
-											<p style="position: relative; left: -130%; top: 25%">
+											<div class="group-material">
+												<input id="contra" type="password" class="material-control tooltips-general" placeholder="Ingrese su contraseña" required="" maxlength="20"  data-toggle="tooltip" data-placement="top" title="Ingrese su contraseña">
+												<span class="highlight"></span>
+												<span class="bar"></span>
+												<label>Contraseña</label>
+											</div>
+											<p style="position: relative; left: -140%;">
+												<!-- Botones para limpiar y para guardar los datos respectivamente -->
 												<button type="reset" class="btn btn-info" style="height:150%; margin-right: 20px;"><i class="zmdi zmdi-roller"></i> &nbsp;&nbsp; Limpiar</button>
 												<button id="guardar" type="submit" class="btn btn-primary"><i class="zmdi zmdi-floppy"></i> &nbsp;&nbsp; Guardar</button>
 											</p>
@@ -228,27 +182,23 @@
 								</div>
 							</div>
 						</form>
-					</div>
 				</div>
-		</div>
+			</div>
+		</section>
 	</div>
-
 </body>
 <!-- Llamadas a los scripts desde la carpeta static -->
-<script src="../js/utils_js/jquery.min.js"></script>
-<script src="../js/utils_js/bootstrap.bundle.min.js"></script>
-<script src="../css/jquery-ui.js"></script>
-<script src="../js/utils_js/jquery.easing.min.js"></script>
-<script src="../js/utils_js/jquery.dataTables.js"></script>
-<script src="../js/utils_js/dataTables.bootstrap4.js"></script>
-<script src="../js/utils_js/sb-admin.min.js"></script>
-<script src="../js/utils_js/jquery.rut.js"></script>
+<script src="js/utils_js/jquery.min.js"></script>
+<script src="js/utils_js/bootstrap.bundle.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="js/views_js/jquery.mCustomScrollbar.concat.min.js" ></script>
 
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script>window.jQuery || document.write('<script src="../js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
-<script src="../js/views_js/material.min.js"></script>
+
+<script src="css/jquery-ui.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="../js/views_js/sweetalert2.min.js"></script>
-<script src="../js/views_js/jquery.mCustomScrollbar.concat.min.js"></script>
-<script src="../js/views_js/main.js"></script>
-<script src="../js/views_js/editProducto.js"></script>
+<script src="js/views_js/jquery.mCustomScrollbar.concat.min.js" ></script>
+<script src="js/views_js/main.js" ></script>
+<script src="js/views_js/configuracion.js" ></script>
 </html>

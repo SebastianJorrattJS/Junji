@@ -1,81 +1,105 @@
-$(()=>{   
-    //Se llama a la función que obtiene los datos  
+$(()=>{ 
+    //Le decimos al usuario que su cuenta se cerrara por precaución  
+    swal({
+        title: 'Cuidado',
+        icon: 'warning',
+        text: 'Al apretar "Guardar". Se cerrara su sesión por seguridad.',
+        confirmButtonText: 'Continuar'
+    });  
+    //Obtenemos los datos actuales del encargado
     getEncargado();
-    
 });
-//Declaramos variable de serie de admin
 let serie;
+
+//Obtener datos del encargado
 getEncargado = () =>{
-    //Obtenemos el numero de serie de nuestro usuario y lo ponemos en id
-    let id = $("#nick").attr("name");
+    event.preventDefault();
     let xhr = new XMLHttpRequest();
-    //Llamamos a nuestra ruta para obtener a nuestros encargados pasando nuestra serie por parametros
-    xhr.open('get',`../api/getDatosEncargado/${id}`);
+    //Llamamos a la ruta que permite obtener los datos del encargado actual
+    xhr.open('get',`api/getConfiguracion`);
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = "json";
     xhr.addEventListener('load',()=>{
         if(xhr.status === 200){
-            //Rellenamos nuestros campos con la respuesta obtenida por la query
+            //Rellenamos sus datos en la vista
             let {data} = xhr.response;
             $("#nick").val(data.nick)
             $("#nombre").val(data.nombre)
             $("#apellido").val(data.apellido)
             $("#correo").val(data.correo)
             $("#telefono").val(data.telefono)
-            serie = data.serie;
+            serie = data.serie
         }else{
             swal({
                 title: 'Error',
                 icon: 'error',
-                text: 'No se pudo obtener los datos del encargado.'
+                text: 'No se pudo obtener sus datos.'
             })
         }
     });
     xhr.send();
 }
 
-//Función que permite editar a un administrador
-editEncargado = () =>{
+//Función que cierra la seción del usuario
+CerrarSecion = () =>{
+    //Llamamos a la función para cambiar el nick del usuario en cada establecimiento en que tome parte
+    editarjardin()
+    //Llamamos a la función que permite editar al usuario
+    editConf()
+    event.preventDefault();
+    let xhr2 = new XMLHttpRequest();
+    //Llamamos al cerrar seción del auth
+	xhr2.open('get', '../auth/logout');
+	xhr2.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr2.send();
+	window.open('../', '_self');
+}
+
+editConf = () =>{
+    //Rellenamos nuestras variables llamando a la id de los input rellenados por el usuario
+    let boole = 0;
     let nombre = $("#nombre").val();
-    let serie = $("#nick").attr("name");
     let nick = $("#nick").val();
     let apellido = $("#apellido").val();
     let correo = $("#correo").val();
     let telefono = $("#telefono").val();
     let contra = $("#contra").val();
-    //Agregamos estos datos 
+    //Si no se a rellenado la contraseña tendrá que rellenarla
+    if(contra == ""){
+        boole = 1;
+    }
+    //Indicamos los datos que serán enviados al request
     let datos = {
         nick:nick,
         nombre:nombre,
         apellido:apellido,
         correo:correo,
         telefono:telefono,
-        serie:serie,
-        contra:contra
+        contra:contra,
+        serie:serie
     }
-    //Y los metemos encodeados en un formdata
+    //Agregamos los datos encodeados a un formdata
     let formData = `data=${encodeURIComponent(JSON.stringify(datos))}`;
     let xhr = new XMLHttpRequest();
-    //Llamamos a la ruta del api editEncargado 
-    xhr.open('put',`../api/editEncargado`);
+    //Llamamos a la ruta para editar la configuración de un usuario
+    xhr.open('put',`api/editConfiguracion`);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = "json";  
     xhr.addEventListener('load',()=>{
-        if(xhr.status === 200){
-            //Llamamos a la función que editara los nicks de los establecimientos de los cuales forma parte el encargado
-            editarjardin();
-             //Si el usuario es actualizado correctamente que abra la vista de encargados
-            window.open(`/encargadoEstablecimiento`, '_self');
+        if(xhr.status === 200 && boole == 0){
+            //Si funciona nos debe enviar al inicio y luego cerrar nuestra seción
+            window.open('/inicio', '_self');
         }
         else{
             addErrorStyle(xhr.response.errors);
             swal({
                 title: 'Error',
                 icon: 'error',
-                text: 'No se pudo actualizar al encargado.'
+                text: 'Error al cargar configuración.'
             })
         }
     });
-    //Enviamos nuestro formdata al request
+    // Enviamos nuestro formdata al request
     xhr.send(formData);
 }
 
@@ -91,12 +115,12 @@ editarjardin = () =>{
     let formData = `data=${encodeURIComponent(JSON.stringify(datos))}`;
     let xhr = new XMLHttpRequest();
     //Llamamos a la ruta del api para cambiar el nick de cualquier establecimiento al que pertenesca el usuario
-    xhr.open('put',`../api/cambiarNickjardin1`);
+    xhr.open('put',`api/cambiarNickjardin1`);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.responseType = "json"; 
+    xhr.responseType = "json";  
     xhr.addEventListener('load',()=>{
         if(xhr.status === 200){
-            editEncargado()
+    
         }
         else{
             addErrorStyle(xhr.response.errors);
@@ -110,5 +134,6 @@ editarjardin = () =>{
     // Enviamos nuestro formdata al request
     xhr.send(formData);  
 }
-//Si el usuario presiona el boton guardar, se llamará a la función editarjardin
-$("#guardar").on('click',editarjardin)
+
+//Si el usuario presiona el boton guardar, se llamará a la función CerrarSecion
+$("#guardar").on('click',CerrarSecion)

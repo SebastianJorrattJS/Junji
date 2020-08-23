@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	//Funciones que se ejecutan al iniciar una vista
 	ObtenerNombre();
 	/*Mostrar ocultar area de notificaciones*/
 	$('.btn-Notification').on('click', function(){
@@ -27,9 +28,6 @@ $(document).ready(function(){
     		navOption.addClass('navBar-options-change');
     	}
 	});
-	$("compania").on("click", function(){
-		window.open('compania', 'self');
-	});
     /*Salir del sistema*/
     $('.btn-exit').on('click', function(){
     	swal({
@@ -42,7 +40,8 @@ $(document).ready(function(){
 		},
 		function(isConfirm) {
 		  	if (isConfirm) {
-		    	event.preventDefault();
+				event.preventDefault();
+				//Llamamos a la ruta del auth para cerrar secion
 				let xhr = new XMLHttpRequest();
 				xhr.open('get', '../auth/logout');
 				xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -64,23 +63,8 @@ $(document).ready(function(){
     	}
     });
 });
-(function($){
-        $(window).on("load",function(){
-            $(".NotificationArea, .pageContent").mCustomScrollbar({
-                theme:"dark-thin",
-                scrollbarPosition: "inside",
-                autoHideScrollbar: true,
-                scrollButtons:{ enable: true }
-            });
-            $(".navLateral-body").mCustomScrollbar({
-                theme:"light-thin",
-                scrollbarPosition: "inside",
-                autoHideScrollbar: true,
-                scrollButtons:{ enable: true }
-            });
-        });
-})(jQuery);
 
+//Función que obtiene los datos del usuario actual en este caso se obtiene el nick y el tipo de perfil
 ObtenerNombre = () => {
 	let xhr = new XMLHttpRequest();
     xhr.open('get','../api/ObtenerUser');
@@ -88,8 +72,13 @@ ObtenerNombre = () => {
     xhr.addEventListener('load',()=>{
         if(xhr.status === 200){
 			let {data} = xhr.response;
-            nombres(data[0].nick);
-            
+			nombres(data[0].nick);
+			//Según el tipo de perfil carga una de las 2 imagenes de perfil
+			if(data[0].perfil == "Mujer"){
+				$(".Perfil").attr("src", "../assets/img/avatar-male.png")
+            }else{
+				$(".Perfil").attr("src", "../assets/img/avatar-male2.png")
+			}
         }else{
             swal({
                 title: 'Error',
@@ -100,7 +89,38 @@ ObtenerNombre = () => {
     });
     xhr.send();
 }
+//Función que modifica el nombre en pantalla del usuario
 nombres = (nick) => {
 	$('#nombre1').text(nick)
 	$('#nombre2').text(nick)
 };
+
+//Si se selecciona una imagen de clase perfil se activa el siguiente metodo
+$(".Perfil").on("click", function(){
+	let xhr = new XMLHttpRequest();
+	//Se llama a la ruta del api que permite cambiar el tipo de perfil
+	xhr.open('put',`../api/cambiarPerfil`);
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.responseType = 'json';
+	xhr.addEventListener('load',()=>{
+		if(xhr.status === 200){
+			//Se llama a la función para cargar el nombre y perfil
+			ObtenerNombre();
+		}else{
+			swal({
+				title: 'Error',
+				icon: 'error',
+				text: 'No se pudo cambiar su imagen de perfil'
+			})
+		}
+	});
+	xhr.send();
+});
+
+//Funcion que valida que los valores ingresados sean numericos
+function validaNumericos(event) {
+    if(event.charCode >= 48 && event.charCode <= 57){
+      return true;
+     }
+     return false;        
+}

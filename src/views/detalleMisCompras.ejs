@@ -4,7 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no	">
 	<title>Junji</title>
+	<link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+	<link
+		href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+		rel="stylesheet">
+
 	<!-- Llamamos a nuestos css que se encuentran en static-->
+	<link href="../css/sb-admin-2.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../css/normalize.css">
 	<link rel="stylesheet" href="../css/sweetalert2.css">
 	<link rel="stylesheet" href="../css/material.min.css">
@@ -14,6 +20,7 @@
 	<link rel="Shortcut Icon" type="image/x-icon" href="../assets/icons/book.ico" />
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
+
 
 </head>
 <body>
@@ -32,107 +39,53 @@
 				</div>
 				<figcaption>
 					<!-- Cargamos el nombre del usuario cargado desde main.js -->
-					<span><span><span id='nombre1'></span><br>
-					<!-- Indicamos el tipo de menu -->
-						<small>Administrador</small>
+					<span><span id='nombre1'></span>
+						<br><!-- Indicamos el tipo de usuario -->
+						<small>Encargado</small>
 					</span>
 				</figcaption>
 			</figure>
 			<nav class="full-width">
 				<!-- Menú principal del navegador -->
 				<ul class="full-width list-unstyle menu-principal">
-				    <li class="full-width">
-						<!-- link a la vista de requerimiento la cual se encuentra en views -->
-						<a href="../requerimiento" class="full-width">
+						<li class="full-width">
+							<!-- link a la vista de solcitud de un encargado la cual se encuentra en views -->
+						<a href="solicitudEncargado" class="full-width">
 							<div class="navLateral-body-cl">
-								<!-- Cargamos la imagen de la opción -->
 								<i class="zmdi zmdi-store"></i>
 							</div>
-							<!-- Titulo de la opcion -->
 							<div class="navLateral-body-cr">
-								REQUERIMIENTO ESTABLECIMIENTO
+								REALIZAR SOLICITUD
 							</div>
 						</a>
 					</li>
 					<li class="full-width divider-menu-h"></li>
 					<li class="full-width">
-						<!-- link a la vista de establecimientos la cual se encuentra en views -->
-						<a href="../compania" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-case"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								ESTABLECIMIENTO
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						
-					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<!-- Opcion desplegable a traves de una lista -->
-						<a href="#!" class="full-width btn-subMenu">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-face"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								USUARIO
-							</div>
-							<span class="zmdi zmdi-chevron-left"></span>
-						</a>
-						<ul class="full-width menu-principal sub-menu-options">
-							<li class="full-width">
-								<!-- OPCION 1 DE USUARIO: link a la vista de lista de administradores la cual se encuentra en views -->
-								<a href="../administrador" class="full-width">
+						<!-- link a la vista de configuracion la cual se encuentra en views -->
+								<a href="configuracion" class="full-width">
 									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-account"></i>
+										<i class="zmdi zmdi-widgets"></i>
 									</div>
 									<div class="navLateral-body-cr">
-										ADMINISTRADOR
+										CONFIGURACION
 									</div>
 								</a>
-							</li>
-							<li class="full-width">
-								<!-- OPCION 2 DE USUARIO: link a la vista de lista de encargados la cual se encuentra en views -->
-								<a href="../encargadoEstablecimiento" class="full-width">
-									<div class="navLateral-body-cl">
-										<i class="zmdi zmdi-accounts"></i>
-									</div>
-									<div class="navLateral-body-cr">
-										ENCARGADO ESTABLECIMIENTO
-									</div>
-								</a>
-							</li>
-						</ul>
 					</li>
-					<li class="full-width divider-menu-h"></li>
-					<li class="full-width">
-						<!-- link a la vista de productos la cual se encuentra en views -->
-						<a href="../producto" class="full-width">
-							<div class="navLateral-body-cl">
-								<i class="zmdi zmdi-washing-machine"></i>
-							</div>
-							<div class="navLateral-body-cr">
-								PRODUCTO
-							</div>
-						</a>
-					</li>
-					<li class="full-width divider-menu-h"></li>
-				    <li class="full-width">
-						<!-- link a la vista de compras la cual se encuentra en views -->
-						<a href="../compra" class="full-width">
+						<li class="full-width">
+							<!-- link a la vista de lista de solicitudes del encargado la cual se encuentra en views -->
+						<a href="missolicitudes" class="full-width">
 							<div class="navLateral-body-cl">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
 							<div class="navLateral-body-cr">
-								COMPRA
+								Mis Solicitudes
 							</div>
 						</a>
 					</li>
 				</ul>
 			</nav><!-- Fin del navegador -->
 		</div>
-	</section >
+	</section>
 	<!-- Opcion de resolución -->
 	<div style="width: 1920px; height: 960px;">
 		<section class="full-width pageContent" style="overflow: scroll">
@@ -160,44 +113,33 @@
 						</ul>
 					</nav><!-- Fin del navegador -->
 				</div>
-					</div><!-- Contenido de la vista -->
+			</div>
+					<!-- Contenido de la vista -->
 					<section class="full-width header-well">
 						<div class="full-width header-well-icon">
-							
+							<i class="zmdi zmdi-store"></i>
 						</div>
 						<div class="full-width header-well-text container-fluid">
 							<br>
 							<br>
 							<!-- Título -->
-							<h1 class="all-tittles" style="position: relative; left: 32%;">Lista de productos </h1>
-							<!-- Boton que exporta la tabla de la vista -->
-							<button type="button" class="btn btn-primary" id="efectuar" style="position: relative; left: 67%; top: -42px;">Exportar</button>
-							<!-- Boton que realiza todo el calculo -->
-							<button type="button" class="btn btn-primary" id="calcular" style="position: relative; left: 67%; top: -42px;">Calcular</button>
-							<br>
-							<br>
-							<!-- Iva ajustable por el usuario validaNumericos evita que se puedan ingresar letras a este input -->
-							<label style="position: relative; right: -0.5%;">IVA =</label><input id="iva" onkeypress='return validaNumericos(event)' value="19" style="position: relative; right: -1%; width: 4%;"></input>
-							<label style="position: relative; right: -1%;">%</label>
+							<h1 class="all-tittles" name="<%= id %>" id="id">Historial de compras</h1>
+							<button type="button" id="volver" class="btn btn-primary" style="position: relative; left: 67%; top: -42px;">Volver</button>
 							<div class="row">
 								<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 									<br/>
-									<!-- Creamos una tabla responsiva con Jquery datatables -->
+									<!-- Generamos una tabla responsive con JQuery datatables -->
 									<div class="table-responsive">
 										<form>
 											<table
-												id="tabla-producto"
+												id="table-detallesCompra"
 												class="lead text-dark table table-striped table-bordered text-center"
 												style="width:100%"
 											>
 												<thead>
-													<th>Codigo</th>
+													<th style="width: 15%;">Numero de Serie</th>
 													<th>Producto</th>
-													<th>Cantidad</th>
-													<th>Precio Uni. Neto</th>
-													<th>Precio Uni. Bruto</th>
-													<th>Sub total Neto</th>
-													<th>Sub total Bruto</th>
+													<th style="width: 25%;">Cantidad</th>
 												</thead>
 												<tbody></tbody>
 											</table>
@@ -205,24 +147,25 @@
 									</div>
 								</div>
 							</div>
-							<br><br>
-							<label style="position: relative; right: -10%;">Total:</label><input readonly id="total" style="position: relative; right: -11%; width:5%;"></input>
 						</div>
 					</section>
 			</section>
 	</div>
-
 </body>
 <!-- Llamadas a los scripts desde la carpeta static -->
-<script src="js/utils_js/jquery.min.js"></script>
-<script src="js/utils_js/bootstrap.bundle.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
-<script src="js/views_js/material.min.js" ></script>
-<script src="js/views_js/jquery.mCustomScrollbar.concat.min.js" ></script>
+<script src="../js/utils_js/jquery.min.js"></script>
+<script src="../js/utils_js/bootstrap.bundle.min.js"></script>
+<script>window.jQuery || document.write('<script src="../js/views_js/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="../js/views_js/material.min.js" ></script>
+<script src="../js/views_js/jquery.mCustomScrollbar.concat.min.js" ></script>
+
 <script src="../vendor/jquery/jquery.min.js"></script>
 <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
 <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
 <script src="../js/utils_js/sb-admin-2.min.js"></script>
+
+
 <script src="../js/utils_js/jquery.min.js"></script>
 <script src="../js/utils_js/bootstrap.bundle.min.js"></script>
 <script src="../css/jquery-ui.js"></script>
@@ -231,7 +174,7 @@
 <script src="../js/utils_js/dataTables.bootstrap4.js"></script>
 <script src="../js/utils_js/sb-admin.min.js"></script>
 <script src="../js/utils_js/jquery.rut.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="js/views_js/main.js" ></script>
-<script src="js/views_js/RealizarCompra.js"></script>
+<script src="../js/views_js/sweetalert2.min.js"></script>
+<script src="../js/views_js/main.js" ></script>
+<script src="../js/views_js/detalleCompras.js"></script>
 </html>

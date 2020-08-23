@@ -1,7 +1,9 @@
 $(()=>{
+    //Llamamos a nuestra función que carga a todos los encargados
     cargarEncargados();
 })
 var tipo = ''
+//Creamos nuestra tabla de Jquery datatables que será llenado por la base de datos y los botones de funcionalidad
 const tabla = $("#tabla-encargado").DataTable({
     language: {
         url: 'js/utils_js/jquery.datatable.spanish.json'
@@ -23,12 +25,15 @@ const tabla = $("#tabla-encargado").DataTable({
     ],
 });
 
+//Función que carga los datos de cada encargado
 cargarEncargados = () =>{
     let xhr = new XMLHttpRequest();
+    //Llamamos a la ruta que obtiene a cada encargado en la api
     xhr.open('get','api/getEncargado');
     xhr.responseType ='json';
     xhr.addEventListener('load',()=>{
         if(xhr.status === 200){
+            //Rellenamos la tabla con los datos obtenidos por la query
             let {data} = xhr.response;
             tabla.clear();
             tabla.rows.add(data);
@@ -44,42 +49,39 @@ cargarEncargados = () =>{
     xhr.send();
 }
 
+//si se aprieta un botón en una fila de la tabla se inicia la función
 $('#tabla-encargado').on( 'click', 'button', function ()  {
+    //Obtenemos los datos de la fila seleccionada
     let data = tabla.row( $(this).parents('tr') ).data();
+    //Si el botón precionado es delete preguntamos al usuario si desea Eliminar al encargado (Aunque seguira presente en la base de datos)
     if($(this)[0].name == 'deleteButton') {
         swal({
-            title: `Eliminar encargado`,
-            icon: 'warning',
-            text: `¿Está seguro/a de Eliminar al encargado "${data.nick}"?`,
-            buttons: {
-                confirm: {
-                    text: 'Eliminar',
-                    value: 'exec'
-                },
-                cancel: {
-                    text: 'Cancelar',
-                    value: 'cancelar',
-                    visible: true
-                }
-            }
-        })
-        .then(action => {
-            if(action == 'exec') {
+            title: '¿Desea eliminar a '+data.nombre+' ?',
+           text: "¿Esta seguro que desea eliminar a este encargado?",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Eliminar',
+            closeOnConfirm: false
+      },function(isConfirm) {
+            if (isConfirm) {
+                //Si se confirma llama al afunción para eliminar un encargado (Deshabilitar)
                 eliminarEncargado(data.nick)
-            } else {
-                swal.close();
-            }
+            } 
         })
     }else{
-        window.open(`editEncargado/${data.nick}`, '_self');
+        //Si el botón no era un delete era un editar, por lo que abrimos esta vista
+        window.open(`editEncargado/${data.serie}`, '_self');
     }
 });
 
+//Función que permite eliminar (Deshabilitar) a un encargado
 eliminarEncargado = (id) =>{
     event.preventDefault();
+    //Encodeamos el nick del encargado y lo enviamos en un formdata
     nick = encodeURIComponent(id);
     let formData = `nick=${nick}`;
     let xhr = new XMLHttpRequest();
+    //Llamamos a la ruta del api que permite eliminar a un ecnargado 
     xhr.open('put',`api/deleteEncargado`);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
@@ -91,11 +93,10 @@ eliminarEncargado = (id) =>{
                 text: xhr.response.msg,
                 button: 'Ok'
             })
-            .then(() => {
-                tabla.rows().remove().draw();
-                QuitarJardin(id);
-                cargarEncargados();
-            });
+            //Si funciona llamamos a la función quitar establecimiento y cargamos la tabla de nuevo
+            tabla.rows().remove().draw();
+            QuitarJardin(id);
+            cargarEncargados();
         }else{
             swal({
                 title: 'Error',
@@ -104,21 +105,25 @@ eliminarEncargado = (id) =>{
             })
         }
     });
+    //Enviamos nuestro formdata al request
     xhr.send(formData);
 }
 
+//Función que elimina a un encargado de su establecimiento al haber sido Deshabilitado
 QuitarJardin = (id) =>{
     event.preventDefault();
     nick = encodeURIComponent(id);
     let formData = `empleado=${nick}`;
     let xhr = new XMLHttpRequest();
+    //Llamamos a la ruta del api que saca al encargado de un establecimiento
     xhr.open('put',`api/deleteEncargadoJardin`);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
     xhr.responseType = 'json';
     xhr.addEventListener('load',()=>{
         if(xhr.status === 200){
-            console.log("Jardin listo")
+
         }
     });
+   //Enviamos nuestro formdata al request
     xhr.send(formData);
 }

@@ -7,12 +7,13 @@
 
 	<!-- Google Fonts -->
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
-	<!-- Custom Stylesheet -->
+	<!-- Stilos del login-->
 	<link rel="stylesheet" href="css/style.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </head>
 <body>
 	<div class="container">
+		<!-- Logo de Junji en el centro -->
 		<div align= "center" style="position: relative; top: 100px">
             <img src="img/Logotipo_de_la_Junji.png"
             width= "220px" height= "220px"
@@ -23,27 +24,33 @@
 		<br>
 		<br>
 		<br>
+		<!-- Caja de logeo -->
 		<div class="login-box">
 			<div class="box-header">
+				<!-- Inicio de sesión -->
 				<h2>Inicio de sesión</h2>
 			</div>
+			<!-- Nombre de usuario -->
 			<label for="username">Usuario</label>
 			<br/>
 			<input type="text" id="username" maxlength="10">
 			<br/>
+			<!-- Contraseña -->
 			<label for="password">Contraseña</label>
 			<br/>
 			<input type="password" id="password" maxlength="15">
 			<br/>
+			<!-- Boton para Inicio de sesión -->
 			<button type="submit" id="ingresar">Ingresar</button>
 			<br/>
-			<a href="#"><p class="small">¿Olvidaste la contraseña?</p></a>
 		</div>
 		<div align ="center"style="position: relative; top: 220px">
+			<!-- Footer -->
 		    <label for="text">Sitio desarollado por estudiantes de Ingeniería Civil en Computación e Informática de la Universidad Católica del Norte, Coquimbo.</label>
 		</div>
 	</div>
 </body>
+<!-- Llamadas a los scripts desde la carpeta static -->
 <script src="js/utils_js/jquery.min.js"></script>
 <script src="js/utils_js/bootstrap.bundle.min.js"></script>
 <script src="css/jquery-ui.js"></script>
